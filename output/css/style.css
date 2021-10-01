@@ -185,29 +185,29 @@ body {
 	height: 200px;
 }
 
+.ability {
+	position: relative;
+	margin-top: 5px;
+}
+
 .ability-runemark {
-	display: inline-block;
-	width: 7.5%;
-	text-align: left;
-	vertical-align: top;
+	display: inline-flex;
+	overflow: hidden;
+	align-items: center;
+	width: 15%;
 }
 
 .ability-runemark img {
-	width: auto;
-	height: auto;
-	margin: 0 10px 10px 10px;
 }
 
 .ability-text {
-	display: inline-block;
-	width: 90%;
+	position: absolute;
+	display: block;
+	width: 75%;
+	margin-left: 10%;
 }
 
 .ability-title {
 	font-weight: bold;
 }
 
-.ability {
-	position: relative;
-	margin-top: 5px;
-}

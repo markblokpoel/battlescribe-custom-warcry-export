@@ -11,6 +11,10 @@
 		select="'abcdefghijklmnopqrstuvwxyz'" />
 	<xsl:variable name="uppercase"
 		select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
+	<xsl:variable name="letters"
+		select="'abdcefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
+
+	<xsl:strip-space elements="bs:selection" />
 
 	<xsl:template match="bs:roster/bs:forces/bs:force">
 		<xsl:variable name="faction"
@@ -18,7 +22,7 @@
 		<html>
 			<head>
 				<link rel="stylesheet" type="text/css" href="css/style.css" />
-				<script id="textFitLib" src="js/textFit.min.js"></script>
+				<script id="textFitLib" src="js/textFit.min.js" />
 				<script>
 					function doFit(){
 					textFit(document.getElementsByClassName('unit-name'),
@@ -58,21 +62,23 @@
 											<xsl:for-each
 												select="bs:selections/bs:selection[@type='upgrade']">
 												<xsl:variable name="runemark"
-													select="translate(substring(@name, 2, string-length(@name)), $uppercase, $lowercase)" />
-												<xsl:if test="$runemark != $faction">
-													<xsl:variable name="runemark-file"
-														select="translate($runemark, ' ', '-')" />
-													<img src="assets/runemarks/white/{$runemark-file}.svg" />
+													select="translate(@name, $uppercase, $lowercase)" />
+												<xsl:if test="contains($runemark, $faction) = false">
+													<xsl:call-template name="runemarkImg">
+														<xsl:with-param name="runemark"
+															select="$runemark" />
+													</xsl:call-template>
 												</xsl:if>
 											</xsl:for-each>
 										</xsl:when>
 										<xsl:otherwise>
 											<xsl:variable name="runemark"
-												select="translate(substring(@name, 2, string-length(@name)), $uppercase, $lowercase)" />
-											<xsl:if test="$runemark != $faction">
-												<xsl:variable name="runemark-file"
-													select="translate($runemark, ' ', '-')" />
-												<img src="assets/runemarks/white/{$runemark-file}.svg" />
+												select="translate(@name, $uppercase, $lowercase)" />
+											<xsl:if test="contains($runemark, $faction) = false">
+												<xsl:call-template name="runemarkImg">
+													<xsl:with-param name="runemark"
+														select="$runemark" />
+												</xsl:call-template>
 											</xsl:if>
 										</xsl:otherwise>
 									</xsl:choose>
@@ -115,25 +121,25 @@
 						</div>
 						<div class="abilities-bg">
 							<div class="abilities">
-
-								<xsl:for-each select="//bs:rule[substring-before(substring-after(@name, '('), ')') != '']">
+								<xsl:for-each
+									select="//bs:rule[substring-before(substring-after(@name, '('), ')') != '']">
 									<xsl:sort select="@name" />
 									<xsl:variable name="ability-name"
 										select="substring-before(@name, ' (')" />
-									<xsl:variable name="ability-body" select="." />
+									<xsl:variable name="ability-description"
+										select="." />
 									<xsl:variable name="ability-runemarks"
 										select="substring-before(substring-after(@name, '('), ')')" />
-										
-									
-										<xsl:call-template name="tokenize">
-											<xsl:with-param name="string"
-												select="$ability-runemarks" />
-											<xsl:with-param name="ability-name"
-												select="$ability-name" />
-											<xsl:with-param name="ability-body"
-												select="$ability-body" />
-											<xsl:with-param name="unit" select="$unit" />
-										</xsl:call-template>
+
+									<xsl:call-template name="tokenize">
+										<xsl:with-param name="string"
+											select="$ability-runemarks" />
+										<xsl:with-param name="ability-name"
+											select="$ability-name" />
+										<xsl:with-param name="ability-description"
+											select="$ability-description" />
+										<xsl:with-param name="unit" select="$unit" />
+									</xsl:call-template>
 								</xsl:for-each>
 							</div>
 						</div>
@@ -143,11 +149,10 @@
 		</html>
 	</xsl:template>
 
-
 	<xsl:template name="tokenize">
 		<xsl:param name="string" />
 		<xsl:param name="ability-name" />
-		<xsl:param name="ability-body" />
+		<xsl:param name="ability-description" />
 		<xsl:param name="unit" />
 		<xsl:choose>
 			<xsl:when test="contains($string,',')">
@@ -162,21 +167,13 @@
 								select="bs:selections/bs:selection[@type='upgrade']">
 								<xsl:choose>
 									<xsl:when test="contains(@name, $ability-runemark)">
-										<div class="ability">
-											<div class="ability-runemark">
-												<xsl:variable name="runemark-file"
-													select="translate(translate(substring($ability-runemark, 
-													2, string-length($ability-runemark)), $uppercase, $lowercase), ' ', '-')" />
-												<img src="assets/runemarks/black/{$runemark-file}.svg" />
-											</div>
-											<div class="ability-text">
-												<span class="ability-title">
-													<xsl:value-of select="$ability-name" />
-												</span>
-												<br />
-												<xsl:value-of select="$ability-body" />
-											</div>
-										</div>
+										<xsl:call-template name="abilityPrint">
+											<xsl:with-param name="runemark" select="@name" />
+											<xsl:with-param name="name"
+												select="$ability-name" />
+											<xsl:with-param name="description"
+												select="$ability-description" />
+										</xsl:call-template>
 									</xsl:when>
 									<xsl:otherwise>
 										<xsl:call-template name="tokenize">
@@ -184,8 +181,8 @@
 												select="substring-after($string,',')" />
 											<xsl:with-param name="ability-name"
 												select="$ability-name" />
-											<xsl:with-param name="ability-body"
-												select="$ability-body" />
+											<xsl:with-param name="ability-description"
+												select="$ability-description" />
 											<xsl:with-param name="unit" select="$unit" />
 										</xsl:call-template>
 									</xsl:otherwise>
@@ -195,21 +192,13 @@
 						<xsl:otherwise>
 							<xsl:choose>
 								<xsl:when test="contains(@name, $ability-runemark)">
-									<div class="ability">
-										<div class="ability-runemark">
-											<xsl:variable name="runemark-file"
-												select="translate(translate(substring($ability-runemark, 
-												2, string-length($ability-runemark)), $uppercase, $lowercase), ' ', '-')" />
-											<img src="assets/runemarks/black/{$runemark-file}.svg" />
-										</div>
-										<div class="ability-text">
-											<span class="ability-title">
-												<xsl:value-of select="$ability-name" />
-											</span>
-											<br />
-											<xsl:value-of select="$ability-body" />
-										</div>
-									</div>
+									<xsl:call-template name="abilityPrint">
+										<xsl:with-param name="runemark" select="@name" />
+										<xsl:with-param name="name"
+											select="$ability-name" />
+										<xsl:with-param name="description"
+											select="$ability-description" />
+									</xsl:call-template>
 								</xsl:when>
 								<xsl:otherwise>
 									<xsl:call-template name="tokenize">
@@ -217,8 +206,8 @@
 											select="substring-after($string,',')" />
 										<xsl:with-param name="ability-name"
 											select="$ability-name" />
-										<xsl:with-param name="ability-body"
-											select="$ability-body" />
+										<xsl:with-param name="ability-description"
+											select="$ability-description" />
 										<xsl:with-param name="unit" select="$unit" />
 									</xsl:call-template>
 								</xsl:otherwise>
@@ -229,8 +218,6 @@
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:variable name="ability-runemark" select="$string" />
-
-
 				<xsl:for-each
 					select="$unit/bs:selections/bs:selection[@type='upgrade']">
 					<xsl:choose>
@@ -238,53 +225,73 @@
 							<xsl:for-each
 								select="bs:selections/bs:selection[@type='upgrade']">
 								<xsl:if test="contains(@name, $ability-runemark)">
-									<div class="ability">
-										<div class="ability-runemark">
-											<xsl:variable name="runemark-file"
-												select="translate(translate(substring($ability-runemark, 
-													2, string-length($ability-runemark)), $uppercase, $lowercase), ' ', '-')" />
-											<img src="assets/runemarks/black/{$runemark-file}.svg" />
-										</div>
-										<div class="ability-text">
-											<span class="ability-title">
-												<xsl:value-of select="$ability-name" />
-											</span>
-											<br />
-											<xsl:value-of select="$ability-body" />
-										</div>
-									</div>
+									<xsl:call-template name="abilityPrint">
+										<xsl:with-param name="runemark" select="@name" />
+										<xsl:with-param name="name"
+											select="$ability-name" />
+										<xsl:with-param name="description"
+											select="$ability-description" />
+									</xsl:call-template>
 								</xsl:if>
 							</xsl:for-each>
 						</xsl:when>
 						<xsl:otherwise>
 							<xsl:if test="contains(@name, $ability-runemark)">
-								<div class="ability">
-									<div class="ability-runemark">
-										<xsl:variable name="runemark-file"
-											select="translate(translate(substring($ability-runemark, 
-												2, string-length($ability-runemark)), $uppercase, $lowercase), ' ', '-')" />
-										<img src="assets/runemarks/black/{$runemark-file}.svg" />
-									</div>
-									<div class="ability-text">
-										<span class="ability-title">
-											<xsl:value-of select="$ability-name" />
-										</span>
-										<br />
-										<xsl:value-of select="$ability-body" />
-									</div>
-								</div>
+								<xsl:call-template name="abilityPrint">
+									<xsl:with-param name="runemark" select="@name" />
+									<xsl:with-param name="name"
+										select="$ability-name" />
+									<xsl:with-param name="description"
+										select="$ability-description" />
+								</xsl:call-template>
 							</xsl:if>
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:for-each>
-
-
-
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
 
+	<xsl:template name="runemarkImg">
+		<xsl:param name="runemark" />
+		<xsl:param name="color" select="'white'" />
 
-	<xsl:variable name="newline" value=" " />
+		<xsl:choose>
+			<xsl:when
+				test="string-length(translate(substring($runemark, 1,1), $letters, '')) > 0">
+				<xsl:variable name="runemark-file"
+					select="translate(substring($runemark, 2, string-length($runemark)-1), ' ', '-')" />
+				<img src="assets/runemarks/{$color}/{$runemark-file}.svg" />
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:variable name="runemark-file"
+					select="translate($runemark, ' ', '-')" />
+				<img src="assets/runemarks/{$color}/{$runemark-file}.svg" />
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+
+	<xsl:template name="abilityPrint">
+		<xsl:param name="runemark" />
+		<xsl:param name="name" />
+		<xsl:param name="description" />
+
+		<div class="ability">
+			<div class="ability-runemark">
+				<xsl:call-template name="runemarkImg">
+					<xsl:with-param name="runemark"
+						select="translate($runemark, $uppercase, $lowercase)" />
+					<xsl:with-param name="color" select="'black'" />
+				</xsl:call-template>
+			</div>
+			<div class="ability-text">
+				<span class="ability-title">
+					<xsl:value-of select="$name" />
+				</span>
+				<br />
+				<xsl:value-of select="$description" />
+			</div>
+		</div>
+	</xsl:template>
 
 </xsl:stylesheet>
