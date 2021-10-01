@@ -1,26 +1,33 @@
 @media print {
+	@page {
+	  size: A4 portait;
+	  margin: 0.2cm;
+	}
+
     body{
-        width: 21cm;
-        height: 29.7cm;
-        margin: 10mm 25mm 10mm 25mm; 
-        /* change the margins as you want them to be. */
+        column-count: 2;
+  		column-gap: 0.2cm;
    } 
 }
+
+
 
 body {
 	color: #fff;
 	font-family: Georgia, serif;
-
 }
 
 .card {
 	position: relative;
+	display: inline-block;
 	background-image: url("../assets/bg-fire-112.jpg");
 	background-size: contain;
 	width: 10cm;
 	height: 7cm;
 	margin-bottom: 1cm;
 	border-radius: 5mm;
+	break-inside: avoid;
+	page-break-inside: avoid;
 }
 
 .base {
