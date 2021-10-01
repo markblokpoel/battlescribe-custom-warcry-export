@@ -1,4 +1,4 @@
-@media print {
+@media print and (orientation:portrait) {
 	@page {
 	  size: A4 portait;
 	  margin: 0.2cm;
@@ -10,6 +10,17 @@
    } 
 }
 
+@media print and (orientation:landscape) {
+	@page {
+	  size: A4 landscape;
+	  margin: 0.2cm;
+	}
+
+    body{
+        column-count: 2;
+  		column-gap: 0.2cm;
+   } 
+}
 
 
 body {
@@ -22,9 +33,10 @@ body {
 	display: inline-block;
 	background-image: url("../assets/bg-fire-112.jpg");
 	background-size: contain;
-	width: 10cm;
-	height: 7cm;
+	width: 12cm;
+	aspect-ratio: 1 / 0.7;
 	margin-bottom: 1cm;
+	margin-right: 1cm;
 	border-radius: 5mm;
 	break-inside: avoid;
 	page-break-inside: avoid;
@@ -34,33 +46,33 @@ body {
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	width: 10cm;
+	width: 100%;
 }
 
 .faction {
 	position: absolute;
 	text-align: center;
-	top: 5mm;
-	left: 5mm;
-	width: 8mm;
-	height: 8mm
+	top: 6mm;
+	left: 6mm;
+	width: 12mm;
+	height: 12mm
 }
 
 .faction img {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 8mm;
+	width: 10mm;
 	height: auto;
 }
 
 .unit-name {
 	position: absolute;
 	text-align: center;
-	width: 4.2cm;
-	height: 1.5cm;
-	top: 1mm;
-	left: 5.5cm;
+	width: 5.2cm;
+	height: 1.8cm;
+	top: 2mm;
+	left: 6.4cm;
 	font-family: Georgia, serif;
 	font-variant: small-caps;
 	font-weight: 700;
@@ -70,81 +82,80 @@ body {
 .cost {
 	position: absolute;
 	text-align: center;
-	top: 3mm;
-	left: 3.9cm;
-	width: 1.3cm;
-	height: 1.3cm;
+	top: 6mm;
+	left: 4.7cm;
+	width: 1.5cm;
+	height: 1.5cm;
 	font-weight: bold;
 	display: inline-block;
-	font-size: 17pt;
-	padding-top: 2mm;
+	font-size: 19pt;
 }
 
 .runemarks {
 	position: absolute;
 	text-align: center;
-	width: 4.2cm;
-	height: .6cm;
-	top: 1.6cm;
-	left: 5.5cm;
+	width: 1.8cm;
+	height: 2.2cm;
+	top: 2.3cm;
+	left: 4.5cm;
 	font-weight: bold;
 }
 
 .runemarks img {
-	width: .6cm;
+	width: .8cm;
 	height: auto;
-	padding: 0 .3em 0 .3em;
+	padding: 0 0 0 .2em;
 }
 
 .stat {
 	position: absolute;
-	width: .8cm;
-	font-size: 17pt;
+	width: 1cm;
+	font-size: 19pt;
 	font-weight: bold;
 	text-align: center;
 }
 
 .move {
 	left: 1.2cm;
-	top: 1.75cm;
+	top: 2.2cm;
 }
 
 .toughness {
-	left: 2.4cm;
-	top: 1.75cm;
+	left: 3cm;
+	top: 2.2cm;
 }
 
 .wounds {
-	left: 2.1cm;
-	top: 2.5cm;
+	left: 2.5cm;
+	top: 3.0cm;
 }
 
 .weapons {
 	position: absolute;
-	width: 5.5cm;
-	left: 4.25cm;
+	width: 5.2cm;
+	height: 2.2cm;
+	left: 6.4cm;
 	top: 2.3cm;
 	color: #000;
 }
 
 .weapons .weapon {
 	width: 100%;
-	height: .74cm;
+	height: 1cm;
 	margin: 0px 0px 1mm 0px;
-	background-size: cover;
 	background-image: url("../assets/weapon-bg.png");
-	background-repeat: no-repeat;
-	background-size: contain;
+	background-position: 0% 0%;
+	background-size: 100% 100%;
 }
 
 .weapon-name {
 	position: absolute;
-	left: 2mm;
+	left: 1mm;
 	width: 2cm;
-	height: .75cm;
+	height: 1cm;
 	font-weight: bold;
 	font-variant: small-caps;
-	text-align: right;
+	text-align: center;
 }
 
 .weapon-stats {
@@ -152,14 +163,14 @@ body {
 	float: right;
 	width: 3cm;
 	height: 100%;
-	right: 2mm;
+	right: 1mm;
 	top: 0;
 }
 
 .weapon-stat {
 	position: relative;
 	display: inline-block;
-	width: 6mm;
+	width: 6.5mm;
 	text-align: center;
 }
 
@@ -168,13 +179,13 @@ body {
 	height: 100%;
 	text-align: center;
 	font-weight: bold;
-	margin-top: -2.5mm;
+	margin-top: -3mm;
 }
 
 .weapons img {
 	position: relative;
-	margin-top: .5mm;
-	width: 3.5mm;
+	margin-top: 1mm;
+	width: 4mm;
 	height: auto;
 }
 
@@ -182,8 +193,8 @@ body {
 	position: absolute;
 	background-image: url("../assets/abilities-bg.png");
 	background-size: cover;
-	width: 10cm;
-	height: 3cm;
+	width: 12cm;
+	height: 3.7cm;
 	bottom: 0mm;
 	border-bottom-left-radius: 5mm;
 	border-bottom-right-radius: 5mm;
@@ -192,10 +203,10 @@ body {
 .abilities {
 	position: absolute;
 	color: #000;
-	bottom: 2mm;
+	bottom: 1mm;
 	left: 0mm;
-	width: 10cm;
-	height: 2.6cm;
+	width: 12cm;
+	height: 3.25cm;
 	display: flex;
 	flex-direction: column;
 }
@@ -204,8 +215,7 @@ body {
 .ability {
 	position: relative;
 	display: inline-block;
-	margin: 0 0 0 1mm;
-	width: 10cm;
+	width: 12cm;
     text-overflow: ellipsis;
     overflow: hidden;
 	flex: 1;
@@ -216,7 +226,8 @@ body {
 	display: table;
 	float: left;
 	border-collapse: collapse;
-	width: .75cm;
+	width: 1.0cm;
+	left: 1mm;
 }
 
 .ability-runemark {
@@ -228,15 +239,16 @@ body {
 	display: inline-block;
 	width: 100%;
 	height: auto;
-	max-width: 5mm;
+	max-width: .6cm;
 }
 
 .ability-text {
 	position: relative;
 	display: inline-block;
 	overflow: none;
-	width: 8.75cm;
-	margin-left: 2mm;
+	width: 10.65cm;
+	margin: 0 1mm 0 2mm;
+	text-align: justify;
 }
 
 .ability-title {

@@ -27,13 +27,13 @@
 				<script>
 					function doFit(){
 					textFit(document.getElementsByClassName('unit-name'),
-						{alignHoriz: true, alignVert: true, multiLine: true})
+						{alignHoriz: true, alignVert: true})
 					textFit(document.getElementsByClassName('ability'),
-						{alignVert: true, multiLine: true, minFontSize: 5, maxFontSize: 12})
+						{alignVert: true, minFontSize: 6, maxFontSize: 12})
 					textFit(document.getElementsByClassName('weapon-name'),
 						{alignHoriz: true, alignVert: true, maxFontSize: 28})
 					textFit(document.getElementsByClassName('weapon-stat-value'),
-						{alignHoriz: true, alignVert: true, maxFontSize: 10})
+						{alignHoriz: true, alignVert: true, maxFontSize: 14})
 					}
 				</script>
 			</head>
@@ -244,9 +244,8 @@
 			</div>
 			<div class="ability-text">
 				<span class="ability-title">
-					<xsl:value-of select="$name" />
+					<xsl:value-of select="substring($name, 2, string-length($name)-2)" />
 				</span>
-				<br />
 				<xsl:value-of select="$description" />
 			</div>
 		</div>
