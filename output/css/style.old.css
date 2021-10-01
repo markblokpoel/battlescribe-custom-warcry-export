@@ -2,60 +2,64 @@
     body{
         width: 21cm;
         height: 29.7cm;
-        margin: 10mm 25mm 10mm 25mm; 
+        margin: 30mm 45mm 30mm 45mm; 
         /* change the margins as you want them to be. */
+        
+        column-width: 10cm;
+  		column-gap: 1cm;
    } 
 }
 
 body {
 	color: #fff;
 	font-family: Georgia, serif;
-
+	
+	column-width: 10cm;
+	column-gap: 1cm;
 }
 
 .card {
 	position: relative;
 	background-image: url("../assets/bg-fire-112.jpg");
 	background-size: contain;
-	width: 10cm;
-	height: 7cm;
-	margin-bottom: 1cm;
-	border-radius: 5mm;
+	width: 828px;
+	height: 579px;
+	margin-bottom: 20px;
+	border-radius: 10px;
+	page-break-after: always;
 }
 
 .base {
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	width: 10cm;
+	width: 828px;
 }
 
 .faction {
 	position: absolute;
 	text-align: center;
-	top: 5mm;
-	left: 5mm;
-	width: 8mm;
-	height: 8mm
+	top: 45px;
+	left: 0px;
+	width: 90px;
 }
 
 .faction img {
 	position: absolute;
-	top: 0;
-	left: 0;
-	width: 8mm;
+	width: 60px;
 	height: auto;
 }
 
 .unit-name {
 	position: absolute;
 	text-align: center;
-	width: 4.2cm;
-	height: 1.5cm;
-	top: 1mm;
-	left: 5.5cm;
+	width: 350px;
+	height: 120px;
+	top: 15px;
+	left: 450px;
 	font-family: Georgia, serif;
 	font-variant: small-caps;
+	font-size: 40px;
 	font-weight: 700;
 	display: inline-block;
 }
@@ -63,173 +67,150 @@ body {
 .cost {
 	position: absolute;
 	text-align: center;
-	top: 3mm;
-	left: 3.9cm;
-	width: 1.3cm;
-	height: 1.3cm;
+	top: 52px;
+	left: 330px;
+	width: 90px;
+	font-size: 40px;
 	font-weight: bold;
 	display: inline-block;
-	font-size: 17pt;
-	padding-top: 2mm;
 }
 
 .runemarks {
 	position: absolute;
 	text-align: center;
-	width: 4.2cm;
-	height: .6cm;
-	top: 1.6cm;
-	left: 5.5cm;
+	width: 350px;
+	top: 135px;
+	left: 450px;
 	font-weight: bold;
 }
 
 .runemarks img {
-	width: .6cm;
+	width: 50px;
 	height: auto;
 	padding: 0 .3em 0 .3em;
 }
 
 .stat {
 	position: absolute;
-	width: .8cm;
-	font-size: 17pt;
+	font-size: 40px;
 	font-weight: bold;
+	width: 80px;
 	text-align: center;
 }
 
 .move {
-	left: 1.2cm;
-	top: 1.75cm;
+	left: 80px;
+	top: 160px;
 }
 
 .toughness {
-	left: 2.4cm;
-	top: 1.75cm;
+	left: 200px;
+	top: 160px;
 }
 
 .wounds {
-	left: 2.1cm;
-	top: 2.5cm;
+	left: 165px;
+	top: 215px;
 }
 
 .weapons {
 	position: absolute;
-	width: 5.5cm;
-	left: 4.25cm;
-	top: 2.3cm;
+	left: 350px;
+	top: 195px;
+	width: 450px;
 	color: #000;
 }
 
 .weapons .weapon {
 	width: 100%;
-	height: .74cm;
-	margin: 0px 0px 1mm 0px;
+	height: 60px;
+	margin: 0px 0px 10px 0px;
 	background-size: cover;
 	background-image: url("../assets/weapon-bg.png");
-	background-repeat: no-repeat;
-	background-size: contain;
 }
 
 .weapon-name {
-	position: absolute;
-	left: 2mm;
-	width: 2cm;
-	height: .75cm;
+	position: relative;
+	left: 15px;
+	width: 200px;
+	height: 60px;
 	font-weight: bold;
 	font-variant: small-caps;
 	text-align: right;
+	font-size: 22px;
 }
 
 .weapon-stats {
 	position: relative;
 	float: right;
-	width: 3cm;
-	height: 100%;
-	right: 2mm;
-	top: 0;
+	width: 220px;
+	height: 60px;
+	right: 10px;
+	top: -57px;
 }
 
 .weapon-stat {
-	position: relative;
 	display: inline-block;
-	width: 6mm;
+	width: 50px;
 	text-align: center;
 }
 
 .weapon-stat-value {
-	width: 100%;
-	height: 100%;
+	position: relative;
+	width: 50px;
+	height: 27px;
+	bottom: 2px;
 	text-align: center;
+	font-size: 24px;
 	font-weight: bold;
-	margin-top: -2.5mm;
 }
 
 .weapons img {
 	position: relative;
-	margin-top: .5mm;
-	width: 3.5mm;
+	width: 27px;
 	height: auto;
+	top: 2px;
 }
 
 .abilities-bg {
-	position: absolute;
+	position: relative;
 	background-image: url("../assets/abilities-bg.png");
 	background-size: cover;
-	width: 10cm;
-	height: 3cm;
-	bottom: 0mm;
-	border-bottom-left-radius: 5mm;
-	border-bottom-right-radius: 5mm;
+	top: 349px;
+	width: 828px;
+	height: 230px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
 
 .abilities {
-	position: absolute;
 	color: #000;
-	bottom: 2mm;
-	left: 0mm;
-	width: 10cm;
-	height: 2.6cm;
-	display: flex;
-	flex-direction: column;
+	top: 15px;
+	left: 15px;
+	width: 798px;
+	height: 200px;
 }
-
 
 .ability {
 	position: relative;
-	display: inline-block;
-	margin: 0 0 0 1mm;
-	width: 10cm;
-    text-overflow: ellipsis;
-    overflow: hidden;
-	flex: 1;
-}
-
-.ability-runemarks {
-	position: relative;
-	display: table;
-	float: left;
-	border-collapse: collapse;
-	width: .75cm;
+	margin-top: 5px;
 }
 
 .ability-runemark {
-  display: table-cell;
-  text-align: center;
+	display: inline-flex;
+	overflow: hidden;
+	align-items: center;
+	width: 15%;
 }
 
 .ability-runemark img {
-	display: inline-block;
-	width: 100%;
-	height: auto;
-	max-width: 5mm;
 }
 
 .ability-text {
-	position: relative;
-	display: inline-block;
-	overflow: none;
-	width: 8.75cm;
-	margin-left: 2mm;
+	position: absolute;
+	display: block;
+	width: 75%;
+	margin-left: 10%;
 }
 
 .ability-title {
