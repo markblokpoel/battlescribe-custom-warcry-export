@@ -130,17 +130,19 @@
 									<xsl:variable name="ability-runemarks"
 										select="translate($ability-runemarks-string, translate($ability-runemarks-string, concat($characters, ','), ''), '')" />
 
-									<xsl:call-template name="processAbility">
-										<xsl:with-param name="string"
-											select="$ability-runemarks" />
-										<xsl:with-param name="ability-name"
-											select="$ability-name" />
-										<xsl:with-param name="ability-runemarks"
-											select="$ability-runemarks" />
-										<xsl:with-param name="ability-description"
-											select="$ability-description" />
-										<xsl:with-param name="unit" select="$unit" />
-									</xsl:call-template>
+
+										<xsl:call-template name="processAbility">
+											<xsl:with-param name="string"
+												select="$ability-runemarks" />
+											<xsl:with-param name="ability-name"
+												select="$ability-name" />
+											<xsl:with-param name="ability-runemarks"
+												select="$ability-runemarks" />
+											<xsl:with-param name="ability-description"
+												select="$ability-description" />
+											<xsl:with-param name="unit" select="$unit" />
+										</xsl:call-template>
+									
 								</xsl:for-each>
 							</div>
 						</div>
@@ -244,7 +246,7 @@
 			</div>
 			<div class="ability-text">
 				<span class="ability-title">
-					<xsl:value-of select="substring($name, 2, string-length($name)-2)" />
+					<xsl:value-of select="substring($name, 2, string-length($name)-1)" />
 				</span>
 				<xsl:value-of select="$description" />
 			</div>
