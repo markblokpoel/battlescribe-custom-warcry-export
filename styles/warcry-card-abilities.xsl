@@ -46,8 +46,11 @@
 								<xsl:value-of select="@name" />
 							</div>
 							<div class="cost">
-								<xsl:value-of
+								<xsl:variable name="baseCost"
 									select="substring-before(bs:costs/bs:cost/@value, '.')" />
+								<xsl:variable name="upgradeCosts"
+									select="sum(bs:selections/bs:selection[@type='upgrade' or @type='model']/bs:costs/bs:cost/@value)" />
+								<xsl:value-of select="$baseCost + $upgradeCosts" />
 							</div>
 							<div class="faction">
 								<xsl:variable name="faction-file"
