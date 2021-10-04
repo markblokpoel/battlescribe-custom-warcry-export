@@ -27,11 +27,9 @@
 				<script>
 					function doFit(){
 					textFit(document.getElementsByClassName('unit-name'),
-					{alignHoriz:
-					true, alignVert: true})
+					{alignHoriz: true, alignVert: true, maxFontSize: 28})
 					textFit(document.getElementsByClassName('abilities'),
-					{alignVert:
-					true, minFontSize: 10, maxFontSize: 20})
+					{minFontSize: 10, maxFontSize: 16})
 					textFit(document.getElementsByClassName('weapon-name'),
 					{alignHoriz: true, alignVert: true, maxFontSize: 28})
 					textFit(document.getElementsByClassName('weapon-stat-value'),
@@ -39,7 +37,7 @@
 					textFit(document.getElementsByClassName('faction-title'),
 					{alignHoriz: true, alignVert: true, maxFontSize: 28})
 					textFit(document.getElementsByClassName('generic-abilities'),
-					{alignHoriz: true, alignVert: true, maxFontSize: 20})
+					{maxFontSize: 16})
 					}
 				</script>
 			</head>
@@ -260,9 +258,9 @@
 				<xsl:variable name="runemark-file"
 					select="translate(translate($runemark, ' ', '-'), $uppercase, $lowercase)" />
 
-				<div class="ability-runemark">
+				<!-- <div class="ability-runemark"> -->
 					<img src="assets/runemarks/black/{$runemark-file}.svg" />
-				</div>
+				<!-- </div> -->
 
 				<xsl:call-template name="runemarkImages">
 					<xsl:with-param name="runemarks"
@@ -274,9 +272,9 @@
 					select="normalize-space($runemarks)" />
 				<xsl:variable name="runemark-file"
 					select="translate(translate($runemark, ' ', '-'), $uppercase, $lowercase)" />
-				<div class="ability-runemark">
+				<!-- <div class="ability-runemark"> -->
 					<img src="assets/runemarks/black/{$runemark-file}.svg" />
-				</div>
+				<!-- </div> -->
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
@@ -287,12 +285,10 @@
 		<xsl:param name="description" />
 		<xsl:param name="showDesc" />
 		<div class="ability">
-			<div class="ability-runemarks">
+			<p>
 				<xsl:call-template name="runemarkImages">
 					<xsl:with-param name="runemarks" select="$runemarks" />
 				</xsl:call-template>
-			</div>
-			<p>
 				<span class="ability-title">
 					<xsl:value-of
 						select="substring($name, 2, string-length($name)-1)" />
