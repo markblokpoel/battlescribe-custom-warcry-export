@@ -27,13 +27,13 @@
 				<script>
 					function doFit(){
 					textFit(document.getElementsByClassName('unit-name'),
-					{alignHoriz: true, alignVert: true, maxFontSize: 28})
+					{alignHoriz: true, alignVert: true, multiLine: true, minFontSize: 12, maxFontSize: 28})
 					textFit(document.getElementsByClassName('abilities'),
-					{minFontSize: 10, maxFontSize: 16})
+					{minFontSize: 12, maxFontSize: 16})
 					textFit(document.getElementsByClassName('weapon-name'),
 					{alignHoriz: true, alignVert: true, maxFontSize: 28})
 					textFit(document.getElementsByClassName('weapon-stat-value'),
-					{alignHoriz: true, alignVert: true, maxFontSize: 14})
+					{alignHoriz: true, alignVert: true, minFontSize: 12, maxFontSize: 14})
 					textFit(document.getElementsByClassName('faction-title'),
 					{alignHoriz: true, alignVert: true, maxFontSize: 28})
 					textFit(document.getElementsByClassName('generic-abilities'),

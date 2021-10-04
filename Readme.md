@@ -28,6 +28,8 @@ The card layout would be possible if not for the awesome [textFit](https://githu
 
 Paper texture is from [Wikimedia](https://commons.wikimedia.org/wiki/Category:Paper_textures#/media/File:Old_paper6.jpg) Public Domain.
 
+Title font is [Morris Roman](https://www.dafont.com/morris-roman.font?text=Sample+text+attack) by Dieter Steffmann.
+
 [Creative Commons](http://creativecommons.org/licenses/by-nc/4.0/)
 
 Please note that this is a non-commercial and non-profit project created by an enthusiast of Games Workshop products. This project is created and gets updated in my personal freetime, it may get abandoned on the long run. Being open source, feel free to fork this project and adapt and improve it.

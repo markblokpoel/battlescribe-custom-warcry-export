@@ -22,10 +22,14 @@
    } 
 }
 
+@font-face {
+  font-family: MorrisRomanBlack;
+  src: url(../assets/MorrisRomanBlack.woff);
+}
 
 body {
 	color: #fff;
-	font-family: Georgia, serif;
+	font-family: serif;
 }
 
 .card {
@@ -73,9 +77,8 @@ body {
 	height: 1.8cm;
 	top: 2mm;
 	left: 6.4cm;
-	font-family: Georgia, serif;
+	font-family: MorrisRomanBlack;
 	font-variant: small-caps;
-	font-weight: 700;
 	display: inline-block;
 }
 
@@ -132,7 +135,7 @@ body {
 
 .weapons {
 	position: absolute;
-	width: 5.2cm;
+	width: 5.4cm;
 	height: 2.2cm;
 	left: 6.4cm;
 	top: 2.3cm;
@@ -161,7 +164,7 @@ body {
 .weapon-stats {
 	position: relative;
 	float: right;
-	width: 3cm;
+	width: 3.2cm;
 	height: 100%;
 	right: 1mm;
 	top: 0;
@@ -170,7 +173,7 @@ body {
 .weapon-stat {
 	position: relative;
 	display: inline-block;
-	width: 6.5mm;
+	width: 6.8mm;
 	text-align: center;
 }
 
@@ -203,7 +206,7 @@ body {
 .abilities {
 	position: absolute;
 	color: #000;
-	bottom: 1mm;
+	bottom: 0mm;
 	left: 0mm;
 	width: 12cm;
 	height: 3.25cm;
@@ -220,6 +223,7 @@ body {
 .ability p {
 	margin: 0 3mm 0 2mm;
 	text-align: justify;
+	letter-spacing: -1px;
 }
 
 .ability > p img {
@@ -259,6 +263,8 @@ body {
 
 .generic-abilities-card > .faction-title {
 	position: absolute;
+	font-family: ElemGothic;
+	font-variant: small-caps;
 	top: 2mm;
 	left: 2mm;
 	width: 11.4cm;
