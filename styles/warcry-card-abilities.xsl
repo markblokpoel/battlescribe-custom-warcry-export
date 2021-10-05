@@ -105,7 +105,14 @@
 								select=".//bs:profiles/bs:profile[@typeName='Weapon']">
 								<div class="weapon">
 									<div class="weapon-name">
-										<xsl:value-of select="@name" />
+										<xsl:choose>
+											<xsl:when test="contains(@name, '(')"> 
+												<xsl:value-of select="substring-before(@name, ' (')" />
+											</xsl:when>
+											<xsl:otherwise>
+												<xsl:value-of select="@name" />
+											</xsl:otherwise>
+										</xsl:choose>
 									</div>
 									<div class="weapon-stats">
 										<xsl:for-each
@@ -149,7 +156,7 @@
 											select="$ability-description" />
 										<xsl:with-param name="showDesc"
 											select="$showDesc" />
-										<xsl:with-param name="unit" select="$unit" />
+										<xsl:with-param name="unitNameAttr" select="$unit//*[@name]" />
 									</xsl:call-template>
 
 								</xsl:for-each>
@@ -202,39 +209,32 @@
 		<xsl:param name="ability-runemarks" />
 		<xsl:param name="ability-description" />
 		<xsl:param name="showDesc" />
-		<xsl:param name="unit" />
-		<xsl:param name="hasAllRunemarks" select="'true'" />
+		<xsl:param name="unitNameAttr" />
+
 		<xsl:choose>
 			<xsl:when test="contains($string,',')">
 				<xsl:variable name="ability-runemark"
 					select="normalize-space(substring-before($string,','))" />
 
-				<xsl:variable name="hasRunemark"
-					select="count($unit//@name[contains(., $ability-runemark)]) > 0" />
-
-				<xsl:call-template name="processAbility">
-					<xsl:with-param name="string"
-						select="substring-after($string,',')" />
-					<xsl:with-param name="ability-name"
-						select="$ability-name" />
-					<xsl:with-param name="ability-runemarks"
-						select="$ability-runemarks" />
-					<xsl:with-param name="ability-description"
-						select="$ability-description" />
-					<xsl:with-param name="showDesc" select="$showDesc" />
-					<xsl:with-param name="unit" select="$unit" />
-					<xsl:with-param name="hasAllRunemarks"
-						select="$hasAllRunemarks and $hasRunemark" />
-				</xsl:call-template>
+				<xsl:if test="$unitNameAttr/@name[contains(., $ability-runemark)]">
+					<xsl:call-template name="processAbility">
+						<xsl:with-param name="string"
+							select="substring-after($string,',')" />
+						<xsl:with-param name="ability-name"
+							select="$ability-name" />
+						<xsl:with-param name="ability-runemarks"
+							select="$ability-runemarks" />
+						<xsl:with-param name="ability-description"
+							select="$ability-description" />
+						<xsl:with-param name="showDesc" select="$showDesc" />
+						<xsl:with-param name="unitNameAttr" select="$unitNameAttr" />
+					</xsl:call-template>
+				</xsl:if>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:variable name="ability-runemark"
 					select="normalize-space($string)" />
-
-				<xsl:variable name="hasRunemark"
-					select="$unit//@name[contains(., $ability-runemark)] != ''" />
-
-				<xsl:if test="$hasAllRunemarks and $hasRunemark">
+				<xsl:if test="$unitNameAttr/@name[contains(., $ability-runemark)]">
 					<xsl:call-template name="abilityPrint">
 						<xsl:with-param name="runemarks"
 							select="$ability-runemarks" />

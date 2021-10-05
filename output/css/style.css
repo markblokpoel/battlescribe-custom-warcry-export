@@ -85,7 +85,7 @@ body {
 .cost {
 	position: absolute;
 	text-align: center;
-	top: 6mm;
+	top: 7mm;
 	left: 4.7cm;
 	width: 1.5cm;
 	height: 1.5cm;
@@ -129,8 +129,8 @@ body {
 }
 
 .wounds {
-	left: 2.5cm;
-	top: 3.0cm;
+	left: 2.4cm;
+	top: 3.1cm;
 }
 
 .weapons {
@@ -263,7 +263,7 @@ body {
 
 .generic-abilities-card > .faction-title {
 	position: absolute;
-	font-family: ElemGothic;
+	font-family: MorrisRomanBlack;
 	font-variant: small-caps;
 	top: 2mm;
 	left: 2mm;

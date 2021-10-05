@@ -1,0 +1,900 @@
+
+  
+    
+  
+  
+    <html xmlns:bs="http://www.battlescribe.net/schema/rosterSchema">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script id="textFitLib" src="js/textFit.min.js"></script><script>
+					function doFit(){
+					textFit(document.getElementsByClassName('unit-name'),
+					{alignHoriz: true, alignVert: true, multiLine: true, minFontSize: 12, maxFontSize: 28})
+					textFit(document.getElementsByClassName('abilities'),
+					{minFontSize: 12, maxFontSize: 16})
+					textFit(document.getElementsByClassName('weapon-name'),
+					{alignHoriz: true, alignVert: true, maxFontSize: 28})
+					textFit(document.getElementsByClassName('weapon-stat-value'),
+					{alignHoriz: true, alignVert: true, minFontSize: 12, maxFontSize: 14})
+					textFit(document.getElementsByClassName('faction-title'),
+					{alignHoriz: true, alignVert: true, maxFontSize: 28})
+					textFit(document.getElementsByClassName('generic-abilities'),
+					{maxFontSize: 16})
+					}
+				</script>
+    </head>
+    <body onload="doFit();">
+        <div class="card">
+            <div class="unit-name">Kurnoth Huntmaster with Kurnoth Scythe</div>
+            <div class="cost">240</div>
+            <div class="faction">
+                <img src="assets/runemarks/white/sylvaneth.svg">
+            </div>
+            <div class="runemarks">
+                <img src="assets/runemarks/white/leader.svg"><img src="assets/runemarks/white/champion.svg">
+            </div>
+            <div class="stat move">4</div>
+            <div class="stat toughness">4</div>
+            <div class="stat wounds">35</div>
+            <div class="weapons">
+                <div class="weapon">
+                    <div class="weapon-name">Kurnoth Scythe (Kurnoth Huntmaster)</div>
+                    <div class="weapon-stats">
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/range.svg">
+                            <div class="weapon-stat-value">2</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/attacks.svg">
+                            <div class="weapon-stat-value">4</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/strength.svg">
+                            <div class="weapon-stat-value">4</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/damage.svg">
+                            <div class="weapon-stat-value">3/6</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="abilities-bg">
+                <div class="abilities">
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Draw from the Spirit-song</span>
+                        </p>
+                    </div>
+                    Node: ⚁ [Double] Shrieking Terror ( Terrifying,  Sylvaneth)
+                    <br>
+                    String: Terrifying, Sylvaneth
+                    <br>
+                    Runemark: Terrifying
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/terrifying.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Shrieking Terror</span>
+          Pick a visible enemy fighter within a number of inches this fighter equal to the value of this abilit and roll a dice. On a 3+, until the end of the battle round that fighter cannot make move actions or disengage actions.
+        
+                        </p>
+                    </div>
+                    Node: ⚁ [Double] Trample Underfoot ( Champion,  Sylvaneth)
+                    <br>
+                    String: Champion, Sylvaneth
+                    <br>
+                    Runemark: Champion
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/champion.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Trample Underfoot</span>
+          Pick a visible enemy fighter with 1" of this fighter and roll a number of dice equal to the value of this ability. For each 4+, allocate 1 damage point to that fighter.
+        
+                        </p>
+                    </div>
+                    Node: ⚂ [Triple] Walk the Spirit Paths ( Warrior,  Sylvaneth)
+                    <br>
+                    String: Warrior, Sylvaneth
+                    <br>
+                    Runemark: Warrior
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/warrior.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Triple] Walk the Spirit Paths</span>
+          Remove this fighter from the battlefield and set them up anywhere on the battlefield floor more than 5" from any enemy fighter.
+        
+                        </p>
+                    </div>
+                    Node: ⚃ [Quad] Envoy of the Everqueen ( Leader,  Sylvaneth)
+                    <br>
+                    String: Leader, Sylvaneth
+                    <br>
+                    Runemark: Leader
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/leader.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Quad] Envoy of the Everqueen</span>
+          Until the end of the battle round, add half the value of this ability (rounding up) to the Toughness and Strength characteristics of friendly fighters while they are within 6" of this fighter.
+        
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="unit-name">Kurnoth Hunter with Kurnoth Greatbow</div>
+            <div class="cost">200</div>
+            <div class="faction">
+                <img src="assets/runemarks/white/sylvaneth.svg">
+            </div>
+            <div class="runemarks">
+                <img src="assets/runemarks/white/champion.svg">
+            </div>
+            <div class="stat move">4</div>
+            <div class="stat toughness">4</div>
+            <div class="stat wounds">30</div>
+            <div class="weapons">
+                <div class="weapon">
+                    <div class="weapon-name">Vicious Claws</div>
+                    <div class="weapon-stats">
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/range.svg">
+                            <div class="weapon-stat-value">1</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/attacks.svg">
+                            <div class="weapon-stat-value">3</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/strength.svg">
+                            <div class="weapon-stat-value">3</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/damage.svg">
+                            <div class="weapon-stat-value">1/3</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="weapon">
+                    <div class="weapon-name">Kurnoth Greatbow</div>
+                    <div class="weapon-stats">
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/range.svg">
+                            <div class="weapon-stat-value">3-20</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/attacks.svg">
+                            <div class="weapon-stat-value">2</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/strength.svg">
+                            <div class="weapon-stat-value">4</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/damage.svg">
+                            <div class="weapon-stat-value">2/5</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="abilities-bg">
+                <div class="abilities">
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Draw from the Spirit-song</span>
+                        </p>
+                    </div>
+                    Node: ⚁ [Double] Shrieking Terror ( Terrifying,  Sylvaneth)
+                    <br>
+                    String: Terrifying, Sylvaneth
+                    <br>
+                    Runemark: Terrifying
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/terrifying.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Shrieking Terror</span>
+          Pick a visible enemy fighter within a number of inches this fighter equal to the value of this abilit and roll a dice. On a 3+, until the end of the battle round that fighter cannot make move actions or disengage actions.
+        
+                        </p>
+                    </div>
+                    Node: ⚁ [Double] Trample Underfoot ( Champion,  Sylvaneth)
+                    <br>
+                    String: Champion, Sylvaneth
+                    <br>
+                    Runemark: Champion
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/champion.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Trample Underfoot</span>
+          Pick a visible enemy fighter with 1" of this fighter and roll a number of dice equal to the value of this ability. For each 4+, allocate 1 damage point to that fighter.
+        
+                        </p>
+                    </div>
+                    Node: ⚂ [Triple] Walk the Spirit Paths ( Warrior,  Sylvaneth)
+                    <br>
+                    String: Warrior, Sylvaneth
+                    <br>
+                    Runemark: Warrior
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/warrior.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Triple] Walk the Spirit Paths</span>
+          Remove this fighter from the battlefield and set them up anywhere on the battlefield floor more than 5" from any enemy fighter.
+        
+                        </p>
+                    </div>
+                    Node: ⚃ [Quad] Envoy of the Everqueen ( Leader,  Sylvaneth)
+                    <br>
+                    String: Leader, Sylvaneth
+                    <br>
+                    Runemark: Leader
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/leader.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Quad] Envoy of the Everqueen</span>
+          Until the end of the battle round, add half the value of this ability (rounding up) to the Toughness and Strength characteristics of friendly fighters while they are within 6" of this fighter.
+        
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="unit-name">Kurnoth Hunter with Kurnoth Scythe</div>
+            <div class="cost">190</div>
+            <div class="faction">
+                <img src="assets/runemarks/white/sylvaneth.svg">
+            </div>
+            <div class="runemarks">
+                <img src="assets/runemarks/white/champion.svg">
+            </div>
+            <div class="stat move">4</div>
+            <div class="stat toughness">4</div>
+            <div class="stat wounds">30</div>
+            <div class="weapons">
+                <div class="weapon">
+                    <div class="weapon-name">Kurnoth Scythe</div>
+                    <div class="weapon-stats">
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/range.svg">
+                            <div class="weapon-stat-value">2</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/attacks.svg">
+                            <div class="weapon-stat-value">3</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/strength.svg">
+                            <div class="weapon-stat-value">4</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/damage.svg">
+                            <div class="weapon-stat-value">3/6</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="abilities-bg">
+                <div class="abilities">
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Draw from the Spirit-song</span>
+                        </p>
+                    </div>
+                    Node: ⚁ [Double] Shrieking Terror ( Terrifying,  Sylvaneth)
+                    <br>
+                    String: Terrifying, Sylvaneth
+                    <br>
+                    Runemark: Terrifying
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/terrifying.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Shrieking Terror</span>
+          Pick a visible enemy fighter within a number of inches this fighter equal to the value of this abilit and roll a dice. On a 3+, until the end of the battle round that fighter cannot make move actions or disengage actions.
+        
+                        </p>
+                    </div>
+                    Node: ⚁ [Double] Trample Underfoot ( Champion,  Sylvaneth)
+                    <br>
+                    String: Champion, Sylvaneth
+                    <br>
+                    Runemark: Champion
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/champion.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Trample Underfoot</span>
+          Pick a visible enemy fighter with 1" of this fighter and roll a number of dice equal to the value of this ability. For each 4+, allocate 1 damage point to that fighter.
+        
+                        </p>
+                    </div>
+                    Node: ⚂ [Triple] Walk the Spirit Paths ( Warrior,  Sylvaneth)
+                    <br>
+                    String: Warrior, Sylvaneth
+                    <br>
+                    Runemark: Warrior
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/warrior.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Triple] Walk the Spirit Paths</span>
+          Remove this fighter from the battlefield and set them up anywhere on the battlefield floor more than 5" from any enemy fighter.
+        
+                        </p>
+                    </div>
+                    Node: ⚃ [Quad] Envoy of the Everqueen ( Leader,  Sylvaneth)
+                    <br>
+                    String: Leader, Sylvaneth
+                    <br>
+                    Runemark: Leader
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/leader.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Quad] Envoy of the Everqueen</span>
+          Until the end of the battle round, add half the value of this ability (rounding up) to the Toughness and Strength characteristics of friendly fighters while they are within 6" of this fighter.
+        
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="unit-name">Spite-Revenant</div>
+            <div class="cost">70</div>
+            <div class="faction">
+                <img src="assets/runemarks/white/sylvaneth.svg">
+            </div>
+            <div class="runemarks">
+                <img src="assets/runemarks/white/terrifying.svg">
+            </div>
+            <div class="stat move">4</div>
+            <div class="stat toughness">3</div>
+            <div class="stat wounds">8</div>
+            <div class="weapons">
+                <div class="weapon">
+                    <div class="weapon-name">Cruel Talons and Fangs</div>
+                    <div class="weapon-stats">
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/range.svg">
+                            <div class="weapon-stat-value">1</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/attacks.svg">
+                            <div class="weapon-stat-value">4</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/strength.svg">
+                            <div class="weapon-stat-value">4</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/damage.svg">
+                            <div class="weapon-stat-value">1/3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="abilities-bg">
+                <div class="abilities">
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Draw from the Spirit-song</span>
+                        </p>
+                    </div>
+                    Node: ⚁ [Double] Shrieking Terror ( Terrifying,  Sylvaneth)
+                    <br>
+                    String: Terrifying, Sylvaneth
+                    <br>
+                    Runemark: Terrifying
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/terrifying.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Shrieking Terror</span>
+          Pick a visible enemy fighter within a number of inches this fighter equal to the value of this abilit and roll a dice. On a 3+, until the end of the battle round that fighter cannot make move actions or disengage actions.
+        
+                        </p>
+                    </div>
+                    Node: ⚁ [Double] Trample Underfoot ( Champion,  Sylvaneth)
+                    <br>
+                    String: Champion, Sylvaneth
+                    <br>
+                    Runemark: Champion
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/champion.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Trample Underfoot</span>
+          Pick a visible enemy fighter with 1" of this fighter and roll a number of dice equal to the value of this ability. For each 4+, allocate 1 damage point to that fighter.
+        
+                        </p>
+                    </div>
+                    Node: ⚂ [Triple] Walk the Spirit Paths ( Warrior,  Sylvaneth)
+                    <br>
+                    String: Warrior, Sylvaneth
+                    <br>
+                    Runemark: Warrior
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/warrior.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Triple] Walk the Spirit Paths</span>
+          Remove this fighter from the battlefield and set them up anywhere on the battlefield floor more than 5" from any enemy fighter.
+        
+                        </p>
+                    </div>
+                    Node: ⚃ [Quad] Envoy of the Everqueen ( Leader,  Sylvaneth)
+                    <br>
+                    String: Leader, Sylvaneth
+                    <br>
+                    Runemark: Leader
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/leader.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Quad] Envoy of the Everqueen</span>
+          Until the end of the battle round, add half the value of this ability (rounding up) to the Toughness and Strength characteristics of friendly fighters while they are within 6" of this fighter.
+        
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="unit-name">Spite-Revenant</div>
+            <div class="cost">70</div>
+            <div class="faction">
+                <img src="assets/runemarks/white/sylvaneth.svg">
+            </div>
+            <div class="runemarks">
+                <img src="assets/runemarks/white/terrifying.svg">
+            </div>
+            <div class="stat move">4</div>
+            <div class="stat toughness">3</div>
+            <div class="stat wounds">8</div>
+            <div class="weapons">
+                <div class="weapon">
+                    <div class="weapon-name">Cruel Talons and Fangs</div>
+                    <div class="weapon-stats">
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/range.svg">
+                            <div class="weapon-stat-value">1</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/attacks.svg">
+                            <div class="weapon-stat-value">4</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/strength.svg">
+                            <div class="weapon-stat-value">4</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/damage.svg">
+                            <div class="weapon-stat-value">1/3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="abilities-bg">
+                <div class="abilities">
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Draw from the Spirit-song</span>
+                        </p>
+                    </div>
+                    Node: ⚁ [Double] Shrieking Terror ( Terrifying,  Sylvaneth)
+                    <br>
+                    String: Terrifying, Sylvaneth
+                    <br>
+                    Runemark: Terrifying
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/terrifying.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Shrieking Terror</span>
+          Pick a visible enemy fighter within a number of inches this fighter equal to the value of this abilit and roll a dice. On a 3+, until the end of the battle round that fighter cannot make move actions or disengage actions.
+        
+                        </p>
+                    </div>
+                    Node: ⚁ [Double] Trample Underfoot ( Champion,  Sylvaneth)
+                    <br>
+                    String: Champion, Sylvaneth
+                    <br>
+                    Runemark: Champion
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/champion.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Trample Underfoot</span>
+          Pick a visible enemy fighter with 1" of this fighter and roll a number of dice equal to the value of this ability. For each 4+, allocate 1 damage point to that fighter.
+        
+                        </p>
+                    </div>
+                    Node: ⚂ [Triple] Walk the Spirit Paths ( Warrior,  Sylvaneth)
+                    <br>
+                    String: Warrior, Sylvaneth
+                    <br>
+                    Runemark: Warrior
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/warrior.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Triple] Walk the Spirit Paths</span>
+          Remove this fighter from the battlefield and set them up anywhere on the battlefield floor more than 5" from any enemy fighter.
+        
+                        </p>
+                    </div>
+                    Node: ⚃ [Quad] Envoy of the Everqueen ( Leader,  Sylvaneth)
+                    <br>
+                    String: Leader, Sylvaneth
+                    <br>
+                    Runemark: Leader
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/leader.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Quad] Envoy of the Everqueen</span>
+          Until the end of the battle round, add half the value of this ability (rounding up) to the Toughness and Strength characteristics of friendly fighters while they are within 6" of this fighter.
+        
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="unit-name">Tree-Revenant</div>
+            <div class="cost">50</div>
+            <div class="faction">
+                <img src="assets/runemarks/white/sylvaneth.svg">
+            </div>
+            <div class="runemarks">
+                <img src="assets/runemarks/white/warrior.svg">
+            </div>
+            <div class="stat move">4</div>
+            <div class="stat toughness">3</div>
+            <div class="stat wounds">8</div>
+            <div class="weapons">
+                <div class="weapon">
+                    <div class="weapon-name">Enchanted Blade</div>
+                    <div class="weapon-stats">
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/range.svg">
+                            <div class="weapon-stat-value">1</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/attacks.svg">
+                            <div class="weapon-stat-value">3</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/strength.svg">
+                            <div class="weapon-stat-value">3</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/damage.svg">
+                            <div class="weapon-stat-value">1/3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="abilities-bg">
+                <div class="abilities">
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Draw from the Spirit-song</span>
+                        </p>
+                    </div>
+                    Node: ⚁ [Double] Shrieking Terror ( Terrifying,  Sylvaneth)
+                    <br>
+                    String: Terrifying, Sylvaneth
+                    <br>
+                    Runemark: Terrifying
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/terrifying.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Shrieking Terror</span>
+          Pick a visible enemy fighter within a number of inches this fighter equal to the value of this abilit and roll a dice. On a 3+, until the end of the battle round that fighter cannot make move actions or disengage actions.
+        
+                        </p>
+                    </div>
+                    Node: ⚁ [Double] Trample Underfoot ( Champion,  Sylvaneth)
+                    <br>
+                    String: Champion, Sylvaneth
+                    <br>
+                    Runemark: Champion
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/champion.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Trample Underfoot</span>
+          Pick a visible enemy fighter with 1" of this fighter and roll a number of dice equal to the value of this ability. For each 4+, allocate 1 damage point to that fighter.
+        
+                        </p>
+                    </div>
+                    Node: ⚂ [Triple] Walk the Spirit Paths ( Warrior,  Sylvaneth)
+                    <br>
+                    String: Warrior, Sylvaneth
+                    <br>
+                    Runemark: Warrior
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/warrior.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Triple] Walk the Spirit Paths</span>
+          Remove this fighter from the battlefield and set them up anywhere on the battlefield floor more than 5" from any enemy fighter.
+        
+                        </p>
+                    </div>
+                    Node: ⚃ [Quad] Envoy of the Everqueen ( Leader,  Sylvaneth)
+                    <br>
+                    String: Leader, Sylvaneth
+                    <br>
+                    Runemark: Leader
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/leader.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Quad] Envoy of the Everqueen</span>
+          Until the end of the battle round, add half the value of this ability (rounding up) to the Toughness and Strength characteristics of friendly fighters while they are within 6" of this fighter.
+        
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="unit-name">Tree-Revenant</div>
+            <div class="cost">50</div>
+            <div class="faction">
+                <img src="assets/runemarks/white/sylvaneth.svg">
+            </div>
+            <div class="runemarks">
+                <img src="assets/runemarks/white/warrior.svg">
+            </div>
+            <div class="stat move">4</div>
+            <div class="stat toughness">3</div>
+            <div class="stat wounds">8</div>
+            <div class="weapons">
+                <div class="weapon">
+                    <div class="weapon-name">Enchanted Blade</div>
+                    <div class="weapon-stats">
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/range.svg">
+                            <div class="weapon-stat-value">1</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/attacks.svg">
+                            <div class="weapon-stat-value">3</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/strength.svg">
+                            <div class="weapon-stat-value">3</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/damage.svg">
+                            <div class="weapon-stat-value">1/3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="abilities-bg">
+                <div class="abilities">
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Draw from the Spirit-song</span>
+                        </p>
+                    </div>
+                    Node: ⚁ [Double] Shrieking Terror ( Terrifying,  Sylvaneth)
+                    <br>
+                    String: Terrifying, Sylvaneth
+                    <br>
+                    Runemark: Terrifying
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/terrifying.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Shrieking Terror</span>
+          Pick a visible enemy fighter within a number of inches this fighter equal to the value of this abilit and roll a dice. On a 3+, until the end of the battle round that fighter cannot make move actions or disengage actions.
+        
+                        </p>
+                    </div>
+                    Node: ⚁ [Double] Trample Underfoot ( Champion,  Sylvaneth)
+                    <br>
+                    String: Champion, Sylvaneth
+                    <br>
+                    Runemark: Champion
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/champion.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Trample Underfoot</span>
+          Pick a visible enemy fighter with 1" of this fighter and roll a number of dice equal to the value of this ability. For each 4+, allocate 1 damage point to that fighter.
+        
+                        </p>
+                    </div>
+                    Node: ⚂ [Triple] Walk the Spirit Paths ( Warrior,  Sylvaneth)
+                    <br>
+                    String: Warrior, Sylvaneth
+                    <br>
+                    Runemark: Warrior
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/warrior.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Triple] Walk the Spirit Paths</span>
+          Remove this fighter from the battlefield and set them up anywhere on the battlefield floor more than 5" from any enemy fighter.
+        
+                        </p>
+                    </div>
+                    Node: ⚃ [Quad] Envoy of the Everqueen ( Leader,  Sylvaneth)
+                    <br>
+                    String: Leader, Sylvaneth
+                    <br>
+                    Runemark: Leader
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/leader.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Quad] Envoy of the Everqueen</span>
+          Until the end of the battle round, add half the value of this ability (rounding up) to the Toughness and Strength characteristics of friendly fighters while they are within 6" of this fighter.
+        
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="unit-name">Spite-Revenant</div>
+            <div class="cost">70</div>
+            <div class="faction">
+                <img src="assets/runemarks/white/sylvaneth.svg">
+            </div>
+            <div class="runemarks">
+                <img src="assets/runemarks/white/terrifying.svg">
+            </div>
+            <div class="stat move">4</div>
+            <div class="stat toughness">3</div>
+            <div class="stat wounds">8</div>
+            <div class="weapons">
+                <div class="weapon">
+                    <div class="weapon-name">Cruel Talons and Fangs</div>
+                    <div class="weapon-stats">
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/range.svg">
+                            <div class="weapon-stat-value">1</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/attacks.svg">
+                            <div class="weapon-stat-value">4</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/strength.svg">
+                            <div class="weapon-stat-value">4</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/damage.svg">
+                            <div class="weapon-stat-value">1/3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="abilities-bg">
+                <div class="abilities">
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Draw from the Spirit-song</span>
+                        </p>
+                    </div>
+                    Node: ⚁ [Double] Shrieking Terror ( Terrifying,  Sylvaneth)
+                    <br>
+                    String: Terrifying, Sylvaneth
+                    <br>
+                    Runemark: Terrifying
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/terrifying.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Shrieking Terror</span>
+          Pick a visible enemy fighter within a number of inches this fighter equal to the value of this abilit and roll a dice. On a 3+, until the end of the battle round that fighter cannot make move actions or disengage actions.
+        
+                        </p>
+                    </div>
+                    Node: ⚁ [Double] Trample Underfoot ( Champion,  Sylvaneth)
+                    <br>
+                    String: Champion, Sylvaneth
+                    <br>
+                    Runemark: Champion
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/champion.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Trample Underfoot</span>
+          Pick a visible enemy fighter with 1" of this fighter and roll a number of dice equal to the value of this ability. For each 4+, allocate 1 damage point to that fighter.
+        
+                        </p>
+                    </div>
+                    Node: ⚂ [Triple] Walk the Spirit Paths ( Warrior,  Sylvaneth)
+                    <br>
+                    String: Warrior, Sylvaneth
+                    <br>
+                    Runemark: Warrior
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/warrior.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Triple] Walk the Spirit Paths</span>
+          Remove this fighter from the battlefield and set them up anywhere on the battlefield floor more than 5" from any enemy fighter.
+        
+                        </p>
+                    </div>
+                    Node: ⚃ [Quad] Envoy of the Everqueen ( Leader,  Sylvaneth)
+                    <br>
+                    String: Leader, Sylvaneth
+                    <br>
+                    Runemark: Leader
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/leader.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Quad] Envoy of the Everqueen</span>
+          Until the end of the battle round, add half the value of this ability (rounding up) to the Toughness and Strength characteristics of friendly fighters while they are within 6" of this fighter.
+        
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="unit-name">Tree-Revenant</div>
+            <div class="cost">50</div>
+            <div class="faction">
+                <img src="assets/runemarks/white/sylvaneth.svg">
+            </div>
+            <div class="runemarks">
+                <img src="assets/runemarks/white/warrior.svg">
+            </div>
+            <div class="stat move">4</div>
+            <div class="stat toughness">3</div>
+            <div class="stat wounds">8</div>
+            <div class="weapons">
+                <div class="weapon">
+                    <div class="weapon-name">Enchanted Blade</div>
+                    <div class="weapon-stats">
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/range.svg">
+                            <div class="weapon-stat-value">1</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/attacks.svg">
+                            <div class="weapon-stat-value">3</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/strength.svg">
+                            <div class="weapon-stat-value">3</div>
+                        </div>
+                        <div class="weapon-stat">
+                            <img src="assets/runemarks/black/damage.svg">
+                            <div class="weapon-stat-value">1/3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="abilities-bg">
+                <div class="abilities">
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Draw from the Spirit-song</span>
+                        </p>
+                    </div>
+                    Node: ⚁ [Double] Shrieking Terror ( Terrifying,  Sylvaneth)
+                    <br>
+                    String: Terrifying, Sylvaneth
+                    <br>
+                    Runemark: Terrifying
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/terrifying.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Shrieking Terror</span>
+          Pick a visible enemy fighter within a number of inches this fighter equal to the value of this abilit and roll a dice. On a 3+, until the end of the battle round that fighter cannot make move actions or disengage actions.
+        
+                        </p>
+                    </div>
+                    Node: ⚁ [Double] Trample Underfoot ( Champion,  Sylvaneth)
+                    <br>
+                    String: Champion, Sylvaneth
+                    <br>
+                    Runemark: Champion
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/champion.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Trample Underfoot</span>
+          Pick a visible enemy fighter with 1" of this fighter and roll a number of dice equal to the value of this ability. For each 4+, allocate 1 damage point to that fighter.
+        
+                        </p>
+                    </div>
+                    Node: ⚂ [Triple] Walk the Spirit Paths ( Warrior,  Sylvaneth)
+                    <br>
+                    String: Warrior, Sylvaneth
+                    <br>
+                    Runemark: Warrior
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/warrior.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Triple] Walk the Spirit Paths</span>
+          Remove this fighter from the battlefield and set them up anywhere on the battlefield floor more than 5" from any enemy fighter.
+        
+                        </p>
+                    </div>
+                    Node: ⚃ [Quad] Envoy of the Everqueen ( Leader,  Sylvaneth)
+                    <br>
+                    String: Leader, Sylvaneth
+                    <br>
+                    Runemark: Leader
+                    <div class="ability">
+                        <p>
+                            <img src="assets/runemarks/black/leader.svg"><img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Quad] Envoy of the Everqueen</span>
+          Until the end of the battle round, add half the value of this ability (rounding up) to the Toughness and Strength characteristics of friendly fighters while they are within 6" of this fighter.
+        
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="generic-abilities-card">
+            <div class="faction-title">Order - Sylvaneth</div>
+            <div class="generic-abilities">
+                <div class="ability">
+                    <p>
+                        <img src="assets/runemarks/black/sylvaneth.svg"><span class="ability-title"> [Double] Draw from the Spirit-song</span>
+          Remove a number of damage points allocated to this fighter equal to half the value of this ability (rounding up).
+        
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+  
