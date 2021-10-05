@@ -32,6 +32,8 @@ body {
 	font-family: serif;
 }
 
+a { color: #fff; text-decoration: none; }
+
 .card {
 	position: relative;
 	display: inline-block;

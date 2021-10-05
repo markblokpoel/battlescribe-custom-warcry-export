@@ -27,25 +27,30 @@
 				<script>
 					function doFit(){
 					textFit(document.getElementsByClassName('unit-name'),
-					{alignHoriz: true, alignVert: true, multiLine: true, minFontSize: 12, maxFontSize: 28})
+					{alignHoriz:
+					true, alignVert: true, multiLine: true, minFontSize: 12,
+					maxFontSize: 28})
 					textFit(document.getElementsByClassName('abilities'),
-					{minFontSize: 12, maxFontSize: 16})
+					{minFontSize:
+					12, maxFontSize: 16})
 					textFit(document.getElementsByClassName('weapon-name'),
 					{alignHoriz: true, alignVert: true, maxFontSize: 28})
 					textFit(document.getElementsByClassName('weapon-stat-value'),
-					{alignHoriz: true, alignVert: true, minFontSize: 12, maxFontSize: 14})
+					{alignHoriz: true, alignVert: true, minFontSize: 12, maxFontSize:
+					14})
 					textFit(document.getElementsByClassName('faction-title'),
 					{alignHoriz: true, alignVert: true, maxFontSize: 28})
 					textFit(document.getElementsByClassName('generic-abilities'),
 					{maxFontSize: 16})
 					}
 				</script>
+
 			</head>
 			<body onload="doFit();">
 				<xsl:for-each
 					select="bs:selections/bs:selection[@type='model' or @type='unit']">
 					<xsl:variable name="unit" select="." />
-					<div class="card">
+					<div class="card" id="{@id}">
 						<div class="unit-name">
 							<xsl:value-of select="@name" />
 						</div>
@@ -106,8 +111,9 @@
 								<div class="weapon">
 									<div class="weapon-name">
 										<xsl:choose>
-											<xsl:when test="contains(@name, '(')"> 
-												<xsl:value-of select="substring-before(@name, ' (')" />
+											<xsl:when test="contains(@name, '(')">
+												<xsl:value-of
+													select="substring-before(@name, ' (')" />
 											</xsl:when>
 											<xsl:otherwise>
 												<xsl:value-of select="@name" />
@@ -156,7 +162,8 @@
 											select="$ability-description" />
 										<xsl:with-param name="showDesc"
 											select="$showDesc" />
-										<xsl:with-param name="unitNameAttr" select="$unit//*[@name]" />
+										<xsl:with-param name="unitNameAttr"
+											select="$unit//*[@name]" />
 									</xsl:call-template>
 
 								</xsl:for-each>
@@ -168,7 +175,8 @@
 
 				<div class="generic-abilities-card">
 					<div class="faction-title">
-						<xsl:value-of select="/bs:roster/bs:forces/bs:force/@catalogueName" />
+						<xsl:value-of
+							select="/bs:roster/bs:forces/bs:force/@catalogueName" />
 					</div>
 					<div class="generic-abilities">
 						<xsl:for-each
@@ -216,7 +224,8 @@
 				<xsl:variable name="ability-runemark"
 					select="normalize-space(substring-before($string,','))" />
 
-				<xsl:if test="$unitNameAttr/@name[contains(., $ability-runemark)]">
+				<xsl:if
+					test="$unitNameAttr/@name[contains(., $ability-runemark)]">
 					<xsl:call-template name="processAbility">
 						<xsl:with-param name="string"
 							select="substring-after($string,',')" />
@@ -227,14 +236,16 @@
 						<xsl:with-param name="ability-description"
 							select="$ability-description" />
 						<xsl:with-param name="showDesc" select="$showDesc" />
-						<xsl:with-param name="unitNameAttr" select="$unitNameAttr" />
+						<xsl:with-param name="unitNameAttr"
+							select="$unitNameAttr" />
 					</xsl:call-template>
 				</xsl:if>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:variable name="ability-runemark"
 					select="normalize-space($string)" />
-				<xsl:if test="$unitNameAttr/@name[contains(., $ability-runemark)]">
+				<xsl:if
+					test="$unitNameAttr/@name[contains(., $ability-runemark)]">
 					<xsl:call-template name="abilityPrint">
 						<xsl:with-param name="runemarks"
 							select="$ability-runemarks" />
@@ -259,7 +270,7 @@
 					select="translate(translate($runemark, ' ', '-'), $uppercase, $lowercase)" />
 
 				<!-- <div class="ability-runemark"> -->
-					<img src="assets/runemarks/black/{$runemark-file}.svg" />
+				<img src="assets/runemarks/black/{$runemark-file}.svg" />
 				<!-- </div> -->
 
 				<xsl:call-template name="runemarkImages">
@@ -273,7 +284,7 @@
 				<xsl:variable name="runemark-file"
 					select="translate(translate($runemark, ' ', '-'), $uppercase, $lowercase)" />
 				<!-- <div class="ability-runemark"> -->
-					<img src="assets/runemarks/black/{$runemark-file}.svg" />
+				<img src="assets/runemarks/black/{$runemark-file}.svg" />
 				<!-- </div> -->
 			</xsl:otherwise>
 		</xsl:choose>
