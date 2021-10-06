@@ -22,7 +22,7 @@
 			select="translate(substring-after(@catalogueName, ' - '), $uppercase, $lowercase)" />
 		<html>
 			<head>
-				<link rel="stylesheet" type="text/css" href="css/style.css" />
+				<link rel="stylesheet" type="text/css" href="css/style-large.css" />
 				<script id="textFitLib" src="js/textFit.min.js" />
 				<script>
 					function doFit(){
@@ -31,7 +31,7 @@
 					true, alignVert: true, multiLine: true, minFontSize: 12,
 					maxFontSize: 28})
 					textFit(document.getElementsByClassName('abilities'),
-					{minFontSize:
+					{alignVert: true, minFontSize:
 					12, maxFontSize: 16})
 					textFit(document.getElementsByClassName('weapon-name'),
 					{alignHoriz: true, alignVert: true, maxFontSize: 28})
@@ -203,6 +203,13 @@
 							</xsl:if>
 
 						</xsl:for-each>
+					</div>
+					<div class="faction-logo">
+						<xsl:variable name="faction"
+							select="translate(substring-after(/bs:roster/bs:forces/bs:force/@catalogueName, ' - '), $uppercase, $lowercase)" />
+						<xsl:variable name="faction-file"
+							select="translate($faction, ' ', '-')" />
+						<img src="assets/runemarks/black/{$faction-file}.svg" />
 					</div>
 				</div>
 

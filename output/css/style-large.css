@@ -1,0 +1,300 @@
+@media print and (orientation:portrait) {
+	@page {
+	  size: A4 portait;
+	  margin: 5mm 5mm 5mm 5mm;
+	}
+
+    body{
+        column-count: 1;
+  		column-gap: 0.2cm;
+   } 
+}
+
+@media print and (orientation:landscape) {
+	@page {
+	  size: A4 landscape;
+	  margin: 5mm 15mm 5mm 15mm;
+	}
+
+    body{
+        column-count: 2;
+  		column-gap: 0.2cm;
+   } 
+}
+
+@font-face {
+  font-family: MorrisRomanBlack;
+  src: url(../assets/MorrisRomanBlack.woff);
+}
+
+body {
+	color: #fff;
+	font-family: serif;
+}
+
+a { color: #fff; text-decoration: none; }
+
+.card {
+	position: relative;
+	display: inline-block;
+	background-image: url("../assets/bg-fire-112.jpg");
+	background-size: contain;
+	width: 13cm;
+	aspect-ratio: 1 / 0.7;
+	margin-bottom: 0.2cm;
+	margin-right: 1cm;
+	border-radius: 5mm;
+	break-inside: avoid;
+	page-break-inside: avoid;
+}
+
+.base {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+}
+
+.faction {
+	position: absolute;
+	text-align: center;
+	top: 5.5mm;
+	left: 5.5mm;
+	width: 15mm;
+	height: 15mm
+}
+
+.faction img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 13mm;
+	height: auto;
+}
+
+.unit-name {
+	position: absolute;
+	text-align: center;
+	width: 6cm;
+	height: 1.8cm;
+	top: 2mm;
+	left: 6.8cm;
+	font-family: MorrisRomanBlack;
+	font-variant: small-caps;
+	display: inline-block;
+}
+
+.cost {
+	position: absolute;
+	text-align: center;
+	top: 7.5mm;
+	left: 5cm;
+	width: 1.8cm;
+	height: 1.5cm;
+	font-weight: bold;
+	display: inline-block;
+	font-size: 19pt;
+}
+
+.runemarks {
+	position: absolute;
+	text-align: center;
+	width: 2.05cm;
+	height: 2.5cm;
+	top: 2.3cm;
+	left: 4.9cm;
+	font-weight: bold;
+}
+
+.runemarks img {
+	width: 1cm;
+	height: auto;
+	padding: 0 0 0 0;
+}
+
+.stat {
+	position: absolute;
+	width: 1cm;
+	font-size: 20pt;
+	font-weight: bold;
+	text-align: center;
+}
+
+.move {
+	left: 1.3cm;
+	top: 2.4cm;
+}
+
+.toughness {
+	left: 3.4cm;
+	top: 2.4cm;
+}
+
+.wounds {
+	left: 2.7cm;
+	top: 3.35cm;
+}
+
+.weapons {
+	position: absolute;
+	width: 5.7cm;
+	height: 2.2cm;
+	left: 7cm;
+	top: 2.3cm;
+	color: #000;
+}
+
+.weapons .weapon {
+	width: 100%;
+	height: 1.2cm;
+	margin: 0px 0px 1mm 0px;
+	background-image: url("../assets/weapon-bg.png");
+	background-position: 0% 0%;
+	background-size: 100% 100%;
+}
+
+.weapon-name {
+	position: absolute;
+	left: 1mm;
+	width: 2.2cm;
+	height: 1.2cm;
+	font-weight: bold;
+	font-variant: small-caps;
+	text-align: center;
+}
+
+.weapon-stats {
+	position: relative;
+	float: right;
+	width: 3.2cm;
+	height: 100%;
+	right: 1mm;
+	top: 0;
+}
+
+.weapon-stat {
+	position: relative;
+	display: inline-block;
+	width: 6.8mm;
+	text-align: center;
+}
+
+.weapon-stat-value {
+	width: 10mm;
+	height: 10mm;
+	text-align: center;
+	font-weight: bold;
+	margin-top: -2mm;
+	margin-left: -1mm;
+}
+
+.weapons img {
+	position: relative;
+	margin-top: 1mm;
+	width: 5mm;
+	height: auto;
+}
+
+.abilities-bg {
+	position: absolute;
+	background-image: url("../assets/abilities-bg.png");
+	background-size: cover;
+	width: 13cm;
+	height: 4.1cm;
+	bottom: 0mm;
+	border-bottom-left-radius: 5mm;
+	border-bottom-right-radius: 5mm;
+}
+
+.abilities {
+	position: absolute;
+	color: #000;
+	bottom: 1mm;
+	left: 0mm;
+	width: 13cm;
+	height: 3.7cm;
+}
+
+
+.ability {
+	position: relative;
+	width: 13cm;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.ability p {
+	margin: 0 3mm 0 2mm;
+	text-align: justify;
+	letter-spacing: -1px;
+}
+
+.ability > p img {
+	display: inline;
+	height: 1em;
+	width: auto;
+}
+
+.ability-runemarks {
+	margin-left: 2mm;
+	width: 1.5cm;
+	text-align: center;
+	float: left;
+}
+
+.ability-text {
+	text-align: justify;
+}
+
+.ability-title {
+	font-weight: bold;
+}
+
+.generic-abilities-card {
+	position: relative;
+	display: inline-block;
+	background-image: url("../assets/generic-abilities-bg.png");
+	background-size: contain;
+	width: 13cm;
+	aspect-ratio: 1 / 0.7;
+	margin-bottom: 1cm;
+	margin-right: 1cm;
+	border-radius: 5mm;
+	break-inside: avoid;
+	page-break-inside: avoid;
+}
+
+.generic-abilities-card > .faction-title {
+	position: absolute;
+	font-family: MorrisRomanBlack;
+	font-variant: small-caps;
+	top: 2mm;
+	left: 2mm;
+	width: 12.5cm;
+	height: 1cm;
+	color: #000;
+	font-weight: bold;
+}
+
+.generic-abilities {
+	position: absolute;
+	top: 1.2cm;
+	width: 13cm;
+	height: 6cm;
+	color: #000;
+}
+
+.faction-logo {
+	position: absolute;
+	width: 5cm;
+	height: 5cm;
+	bottom: 5mm;
+	right: 5mm;
+	opacity: 0.1;
+}
+
+.faction-logo img {
+	width: auto;
+	height: 100%;
+}
+
