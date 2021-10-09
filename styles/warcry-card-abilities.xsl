@@ -14,7 +14,7 @@
 	<xsl:variable name="letters"
 		select="'abdcefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
 	<xsl:variable name="characters"
-		select="'abdcefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789-'" />
+		select="'abdcefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789-:'" />
 
 
 	<xsl:template match="bs:roster/bs:forces/bs:force">
