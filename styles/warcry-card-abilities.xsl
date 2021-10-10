@@ -14,12 +14,13 @@
 	<xsl:variable name="letters"
 		select="'abdcefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
 	<xsl:variable name="characters"
-		select="'abdcefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789-:'" />
+		select="'abdcefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789'" />
 
 
 	<xsl:template match="bs:roster/bs:forces/bs:force">
 		<xsl:variable name="faction"
-			select="translate(substring-after(@catalogueName, ' - '), $uppercase, $lowercase)" />
+			select="translate(normalize-space(translate(substring-after(@catalogueName, ' - '), translate(substring-after(@catalogueName, ' - '), $characters, ''), '')), $uppercase, $lowercase)" />
+		<xsl:variable name="faction-file" select="translate($faction, ' ', '-')" />
 		<html>
 			<head>
 				<link rel="stylesheet" type="text/css" href="css/style-large.css" />
@@ -62,8 +63,6 @@
 							<xsl:value-of select="$baseCost + $upgradeCosts" />
 						</div>
 						<div class="faction">
-							<xsl:variable name="faction-file"
-								select="translate($faction, ' ', '-')" />
 							<img src="assets/runemarks/white/{$faction-file}.svg" />
 						</div>
 						<div class="runemarks">
@@ -75,7 +74,10 @@
 											select="bs:selections/bs:selection[@type='upgrade']">
 											<xsl:variable name="runemark"
 												select="translate(translate(@name, translate(@name, $characters, ''), ''), $uppercase, $lowercase)" />
-
+<xsl:message>
+F(<xsl:value-of select="$faction" />)
+R(<xsl:value-of select="$runemark" />)
+</xsl:message>
 											<xsl:if test="contains($runemark, $faction) = false">
 												<xsl:variable name="runemark-file"
 													select="translate($runemark, ' ', '-')" />
@@ -86,6 +88,10 @@
 									<xsl:otherwise>
 										<xsl:variable name="runemark"
 											select="translate(translate(@name, translate(@name, $characters, ''), ''), $uppercase, $lowercase)" />
+<xsl:message>
+F(<xsl:value-of select="$faction" />)
+R(<xsl:value-of select="$runemark" />)
+</xsl:message>
 										<xsl:if test="contains($runemark, $faction) = false">
 											<xsl:variable name="runemark-file"
 												select="translate($runemark, ' ', '-')" />
@@ -205,10 +211,6 @@
 						</xsl:for-each>
 					</div>
 					<div class="faction-logo">
-						<xsl:variable name="faction"
-							select="translate(substring-after(/bs:roster/bs:forces/bs:force/@catalogueName, ' - '), $uppercase, $lowercase)" />
-						<xsl:variable name="faction-file"
-							select="translate($faction, ' ', '-')" />
 						<img src="assets/runemarks/black/{$faction-file}.svg" />
 					</div>
 				</div>
@@ -276,9 +278,7 @@
 				<xsl:variable name="runemark-file"
 					select="translate(translate($runemark, ' ', '-'), $uppercase, $lowercase)" />
 
-				<!-- <div class="ability-runemark"> -->
 				<img src="assets/runemarks/black/{$runemark-file}.svg" />
-				<!-- </div> -->
 
 				<xsl:call-template name="runemarkImages">
 					<xsl:with-param name="runemarks"
@@ -290,9 +290,7 @@
 					select="normalize-space($runemarks)" />
 				<xsl:variable name="runemark-file"
 					select="translate(translate($runemark, ' ', '-'), $uppercase, $lowercase)" />
-				<!-- <div class="ability-runemark"> -->
 				<img src="assets/runemarks/black/{$runemark-file}.svg" />
-				<!-- </div> -->
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
