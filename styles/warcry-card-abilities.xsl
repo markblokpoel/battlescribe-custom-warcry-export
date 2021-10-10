@@ -63,7 +63,9 @@
 							<xsl:value-of select="$baseCost + $upgradeCosts" />
 						</div>
 						<div class="faction">
-							<img src="assets/runemarks/white/{$faction-file}.svg" />
+							<xsl:if test="bs:categories/bs:category[@name = 'Leaders' or @name = 'Fighters']">
+								<img src="assets/runemarks/white/{$faction-file}.svg" />
+							</xsl:if>
 						</div>
 						<div class="runemarks">
 							<xsl:for-each
@@ -74,10 +76,6 @@
 											select="bs:selections/bs:selection[@type='upgrade']">
 											<xsl:variable name="runemark"
 												select="translate(translate(@name, translate(@name, $characters, ''), ''), $uppercase, $lowercase)" />
-<xsl:message>
-F(<xsl:value-of select="$faction" />)
-R(<xsl:value-of select="$runemark" />)
-</xsl:message>
 											<xsl:if test="contains($runemark, $faction) = false">
 												<xsl:variable name="runemark-file"
 													select="translate($runemark, ' ', '-')" />
@@ -88,10 +86,6 @@ R(<xsl:value-of select="$runemark" />)
 									<xsl:otherwise>
 										<xsl:variable name="runemark"
 											select="translate(translate(@name, translate(@name, $characters, ''), ''), $uppercase, $lowercase)" />
-<xsl:message>
-F(<xsl:value-of select="$faction" />)
-R(<xsl:value-of select="$runemark" />)
-</xsl:message>
 										<xsl:if test="contains($runemark, $faction) = false">
 											<xsl:variable name="runemark-file"
 												select="translate($runemark, ' ', '-')" />
@@ -181,8 +175,7 @@ R(<xsl:value-of select="$runemark" />)
 
 				<div class="generic-abilities-card">
 					<div class="faction-title">
-						<xsl:value-of
-							select="/bs:roster/bs:forces/bs:force/@catalogueName" />
+						Warband Abilities
 					</div>
 					<div class="generic-abilities">
 						<xsl:for-each
