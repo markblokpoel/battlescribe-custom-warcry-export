@@ -63,7 +63,7 @@
 							<xsl:value-of select="$baseCost + $upgradeCosts" />
 						</div>
 						<div class="faction">
-							<xsl:if test="bs:categories/bs:category[@name = 'Leaders' or @name = 'Fighters']">
+							<xsl:if test="bs:categories/bs:category[@name = 'Leaders' or @name = 'Fighters' or @name = 'Heroes']">
 								<img src="assets/runemarks/white/{$faction-file}.svg" />
 							</xsl:if>
 						</div>
