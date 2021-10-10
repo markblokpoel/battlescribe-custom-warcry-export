@@ -105,7 +105,6 @@
 						</xsl:for-each>
 
 						<div class="weapons">
-
 							<xsl:for-each
 								select=".//bs:profiles/bs:profile[@typeName='Weapon']">
 								<div class="weapon">
@@ -136,6 +135,7 @@
 								</div>
 							</xsl:for-each>
 						</div>
+						
 						<div class="abilities-bg">
 							<div class="abilities">
 								<xsl:for-each
@@ -225,9 +225,8 @@
 			<xsl:when test="contains($string,',')">
 				<xsl:variable name="ability-runemark"
 					select="normalize-space(substring-before($string,','))" />
-
 				<xsl:if
-					test="$unitNameAttr/@name[contains(., $ability-runemark)]">
+					test="$unitNameAttr/@name[contains(normalize-space(translate(., translate(., $characters, ''), '')), $ability-runemark)]">
 					<xsl:call-template name="processAbility">
 						<xsl:with-param name="string"
 							select="substring-after($string,',')" />
@@ -247,7 +246,7 @@
 				<xsl:variable name="ability-runemark"
 					select="normalize-space($string)" />
 				<xsl:if
-					test="$unitNameAttr/@name[contains(., $ability-runemark)]">
+					test="$unitNameAttr/@name[contains(normalize-space(translate(., translate(., $characters, ''), '')), $ability-runemark)]">
 					<xsl:call-template name="abilityPrint">
 						<xsl:with-param name="runemarks"
 							select="$ability-runemarks" />
