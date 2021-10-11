@@ -56,7 +56,7 @@
 							<xsl:choose>
 								<xsl:when test="@customName">
 									<xsl:value-of select="@customName" /><br />
-									(<xsl:value-of select="@name" />)
+									<xsl:value-of select="@name" />
 								</xsl:when>
 								<xsl:otherwise>
 									<xsl:value-of select="@name" />

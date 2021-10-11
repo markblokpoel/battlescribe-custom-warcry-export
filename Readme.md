@@ -19,8 +19,10 @@ This custom export allows you to generate cards for your warbands using [BattleS
 ## Limitations
 
 * You need to save the HTML file to the right folder. If your cards have no images and text is messed up, you may have not stored it in the output folder as specified in step 3.2. Check if the HTML file is in the output folder so it can load the images and scripts.
-* When printing to PDF, sometimes the images do not show up. Try printing again. 
-* When printing to PDF the custom title font will not load in the PDF. Try installing [Morris Roman font](https://www.dafont.com/morris-roman.font?text=Sample+text+attack) on your system.
+* Layout is optimized for printing, browser milage may vary depending on your viewing device.
+* When printing to PDF, sometimes the images do not show up. Try restarting your browser and printing again.
+* When printing to PDF the custom title font will not load in the PDF. You need to install [Morris Roman font](https://www.dafont.com/morris-roman.font?text=Sample+text+attack) on your system.
+* The resulting PDF file may be very large. You can use a PDF editor to compress it in case you need to.
 
 ## Attributions and license
 
