@@ -53,7 +53,15 @@
 					<xsl:variable name="unit" select="." />
 					<div class="card" id="{@id}">
 						<div class="unit-name">
-							<xsl:value-of select="@name" />
+							<xsl:choose>
+								<xsl:when test="@customName">
+									<xsl:value-of select="@customName" /><br />
+									(<xsl:value-of select="@name" />)
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:value-of select="@name" />
+								</xsl:otherwise>
+							</xsl:choose>
 						</div>
 						<div class="cost">
 							<xsl:variable name="baseCost"
@@ -95,6 +103,7 @@
 								</xsl:choose>
 							</xsl:for-each>
 						</div>
+						
 						<xsl:for-each
 							select="bs:profiles/bs:profile[@typeName='Model']/bs:characteristics/bs:characteristic">
 							<xsl:variable name="runemark"
@@ -138,17 +147,11 @@
 						
 						<div class="abilities-bg">
 							<div class="abilities">
-<xsl:message>
-Unit(<xsl:value-of select="$unit/@name" />)
-</xsl:message>
 								<xsl:for-each
 									select="//bs:rule[substring-before(substring-after(@name, '('), ')') != '']">
 									<xsl:sort select="@name" />
 									<xsl:variable name="ability-name"
 										select="substring-before(@name, ' (')" />
-<xsl:message>
-Ability(<xsl:value-of select="$ability-name" />)
-</xsl:message>
 									<xsl:variable name="ability-description"
 										select="." />
 									<xsl:variable name="ability-runemarks-string"
@@ -226,24 +229,13 @@ Ability(<xsl:value-of select="$ability-name" />)
 		<xsl:param name="showDesc" />
 		<xsl:param name="unitNameAttr" />
 		
-<xsl:message>
-AS(<xsl:value-of select="$ability-runemarks" />)
-</xsl:message>
-
 		<xsl:choose>
 			<xsl:when test="contains($string,',')">
 				<xsl:variable name="ability-runemark"
 					select="normalize-space(substring-before($string,','))" />
-					
-<xsl:message>
-AR(<xsl:value-of select="$ability-runemark" />)
-</xsl:message>
-
 				<xsl:if
 					test="$unitNameAttr/@name[normalize-space(translate(., translate(., $characters, ''), '')) = $ability-runemark]">
-<xsl:message>
-UN(<xsl:value-of select="$unitNameAttr/@name[normalize-space(translate(., translate(., $characters, ''), '')) = $ability-runemark]" />)
-</xsl:message>				
+			
 					<xsl:call-template name="processAbility">
 						<xsl:with-param name="string"
 							select="substring-after($string,',')" />
@@ -262,16 +254,8 @@ UN(<xsl:value-of select="$unitNameAttr/@name[normalize-space(translate(., transl
 			<xsl:otherwise>
 				<xsl:variable name="ability-runemark"
 					select="normalize-space($string)" />
-
-<xsl:message>
-AR(<xsl:value-of select="$ability-runemark" />)
-</xsl:message>
-
 				<xsl:if
 					test="$unitNameAttr/@name[normalize-space(translate(., translate(., $characters, ''), '')) = $ability-runemark]">
-<xsl:message>
-UN(<xsl:value-of select="$unitNameAttr/@name[normalize-space(translate(., translate(., $characters, ''), '')) = $ability-runemark]" />)
-</xsl:message>	
 					<xsl:call-template name="abilityPrint">
 						<xsl:with-param name="runemarks"
 							select="$ability-runemarks" />
