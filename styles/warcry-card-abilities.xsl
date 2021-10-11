@@ -138,11 +138,17 @@
 						
 						<div class="abilities-bg">
 							<div class="abilities">
+<xsl:message>
+Unit(<xsl:value-of select="$unit/@name" />)
+</xsl:message>
 								<xsl:for-each
 									select="//bs:rule[substring-before(substring-after(@name, '('), ')') != '']">
 									<xsl:sort select="@name" />
 									<xsl:variable name="ability-name"
 										select="substring-before(@name, ' (')" />
+<xsl:message>
+Ability(<xsl:value-of select="$ability-name" />)
+</xsl:message>
 									<xsl:variable name="ability-description"
 										select="." />
 									<xsl:variable name="ability-runemarks-string"
@@ -171,7 +177,6 @@
 						</div>
 					</div>
 				</xsl:for-each>
-
 
 				<div class="generic-abilities-card">
 					<div class="faction-title">
@@ -220,13 +225,25 @@
 		<xsl:param name="ability-description" />
 		<xsl:param name="showDesc" />
 		<xsl:param name="unitNameAttr" />
+		
+<xsl:message>
+AS(<xsl:value-of select="$ability-runemarks" />)
+</xsl:message>
 
 		<xsl:choose>
 			<xsl:when test="contains($string,',')">
 				<xsl:variable name="ability-runemark"
 					select="normalize-space(substring-before($string,','))" />
+					
+<xsl:message>
+AR(<xsl:value-of select="$ability-runemark" />)
+</xsl:message>
+
 				<xsl:if
-					test="$unitNameAttr/@name[contains(normalize-space(translate(., translate(., $characters, ''), '')), $ability-runemark)]">
+					test="$unitNameAttr/@name[normalize-space(translate(., translate(., $characters, ''), '')) = $ability-runemark]">
+<xsl:message>
+UN(<xsl:value-of select="$unitNameAttr/@name[normalize-space(translate(., translate(., $characters, ''), '')) = $ability-runemark]" />)
+</xsl:message>				
 					<xsl:call-template name="processAbility">
 						<xsl:with-param name="string"
 							select="substring-after($string,',')" />
@@ -245,8 +262,16 @@
 			<xsl:otherwise>
 				<xsl:variable name="ability-runemark"
 					select="normalize-space($string)" />
+
+<xsl:message>
+AR(<xsl:value-of select="$ability-runemark" />)
+</xsl:message>
+
 				<xsl:if
-					test="$unitNameAttr/@name[contains(normalize-space(translate(., translate(., $characters, ''), '')), $ability-runemark)]">
+					test="$unitNameAttr/@name[normalize-space(translate(., translate(., $characters, ''), '')) = $ability-runemark]">
+<xsl:message>
+UN(<xsl:value-of select="$unitNameAttr/@name[normalize-space(translate(., translate(., $characters, ''), '')) = $ability-runemark]" />)
+</xsl:message>	
 					<xsl:call-template name="abilityPrint">
 						<xsl:with-param name="runemarks"
 							select="$ability-runemarks" />
