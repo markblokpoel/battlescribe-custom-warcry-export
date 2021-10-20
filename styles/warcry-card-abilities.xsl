@@ -51,7 +51,18 @@
 				<xsl:for-each
 					select="bs:selections/bs:selection[@type='model' or @type='unit']">
 					<xsl:variable name="unit" select="." />
-					<div class="card" id="{@id}">
+					<xsl:variable name="monster" select="count(.//bs:selection[contains(translate(@name, $uppercase, $lowercase), 'monster')]) > 0" />
+					<xsl:variable name="thrall" select="count(.//bs:selection[contains(translate(@name, $uppercase, $lowercase), 'thrall')]) > 0" />
+					
+					<xsl:variable name="cardTags">
+						<xsl:choose>
+						<xsl:when test="$monster"> monster</xsl:when>
+						<xsl:when test="$thrall"> thrall</xsl:when>
+						</xsl:choose>
+					</xsl:variable>
+					
+					<div class="card{$cardTags}" id="{@id}">
+					
 						<div class="unit-name">
 							<xsl:choose>
 								<xsl:when test="@customName">
@@ -59,7 +70,8 @@
 									<xsl:value-of select="@name" />
 								</xsl:when>
 								<xsl:otherwise>
-									<xsl:value-of select="@name" />
+									<xsl:value-of select="@name" /><br />
+									<xsl:value-of select="$monster" />
 								</xsl:otherwise>
 							</xsl:choose>
 						</div>
@@ -144,6 +156,29 @@
 								</div>
 							</xsl:for-each>
 						</div>
+						
+						<xsl:choose>
+							<xsl:when test="$monster">
+								<div class="monster-table">
+									<table>
+									<tr>
+										<td><img src="assets/runemarks/white/wounds.svg" /></td>
+										<td><img src="assets/runemarks/white/move.svg" /></td>
+										<td><img src="assets/runemarks/white/damage.svg" /></td>
+									</tr>
+									<xsl:for-each select="//bs:profile[@typeName = 'Damage Points Allocated']">
+										<xsl:sort select="@name" />
+										<tr>
+											<td><xsl:value-of select="@name" /></td>
+											<td><xsl:value-of select="bs:characteristics/bs:characteristic[@name = 'Move']" /></td>
+											<td><xsl:value-of select="bs:characteristics/bs:characteristic[@name = 'Damage']" /></td>
+										</tr>
+									</xsl:for-each>
+									</table>
+								</div>
+							</xsl:when>
+						</xsl:choose>
+						
 						
 						<div class="abilities-bg">
 							<div class="abilities">

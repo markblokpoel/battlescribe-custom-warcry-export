@@ -23,8 +23,8 @@
 }
 
 @font-face {
-  font-family: MorrisRomanBlack;
-  src: url(../assets/MorrisRomanBlack.woff);
+  font-family: RodchenkoCTT;
+  src: url(../assets/rodchenkoctt.woff);
 }
 
 body {
@@ -48,6 +48,10 @@ a { color: #fff; text-decoration: none; }
 	page-break-inside: avoid;
 }
 
+.monster {
+	aspect-ratio: 1/1.3 !important;
+}
+
 .base {
 	position: absolute;
 	top: 0px;
@@ -59,16 +63,15 @@ a { color: #fff; text-decoration: none; }
 	position: absolute;
 	text-align: center;
 	top: 5.5mm;
-	left: 5.5mm;
-	width: 15mm;
-	height: 15mm
+	left: 4.1mm;
+	width: 16mm;
+	height: 12mm
 }
 
 .faction img {
-	position: absolute;
 	top: 0;
 	left: 0;
-	width: 13mm;
+	width: 12mm;
 	height: auto;
 }
 
@@ -79,8 +82,7 @@ a { color: #fff; text-decoration: none; }
 	height: 1.8cm;
 	top: 2mm;
 	left: 6.8cm;
-	font-family: MorrisRomanBlack;
-	font-variant: small-caps;
+	font-family: RodchenkoCTT;
 	display: inline-block;
 }
 
@@ -144,6 +146,12 @@ a { color: #fff; text-decoration: none; }
 	color: #000;
 }
 
+.monster .weapons {
+	left: .5cm !important;
+	top: 5.5cm !important;
+	width: 6.5cm !important;
+}
+
 .weapons .weapon {
 	width: 100%;
 	height: 1.2cm;
@@ -195,6 +203,22 @@ a { color: #fff; text-decoration: none; }
 	height: auto;
 }
 
+.monster .monster-table {
+	position: absolute;
+	width: 5.7cm;
+	height: 2.2cm;
+	left: 7cm;
+	top: 2.3cm;
+}
+
+.monster-table table {
+	width: 100%;
+}
+
+.monster-table td {
+	text-align: center;
+}
+
 .abilities-bg {
 	position: absolute;
 	background-image: url("../assets/abilities-bg.png");
@@ -206,13 +230,17 @@ a { color: #fff; text-decoration: none; }
 	border-bottom-right-radius: 5mm;
 }
 
+.monster .abilities-bg {
+	height: 9cm !important;
+}
+
 .abilities {
 	position: absolute;
 	color: #000;
 	bottom: 1mm;
 	left: 0mm;
 	width: 13cm;
-	height: 3.7cm;
+	height: 90%;
 }
 
 
@@ -266,8 +294,7 @@ a { color: #fff; text-decoration: none; }
 
 .generic-abilities-card > .faction-title {
 	position: absolute;
-	font-family: MorrisRomanBlack;
-	font-variant: small-caps;
+	font-family: RodchenkoCTT;
 	top: 2mm;
 	left: 2mm;
 	width: 12.5cm;
