@@ -20,10 +20,12 @@
 	<xsl:template match="bs:roster/bs:forces/bs:force">
 		<xsl:variable name="faction"
 			select="translate(normalize-space(translate(substring-after(@catalogueName, ' - '), translate(substring-after(@catalogueName, ' - '), $characters, ''), '')), $uppercase, $lowercase)" />
-		<xsl:variable name="faction-file" select="translate($faction, ' ', '-')" />
+		<xsl:variable name="faction-file"
+			select="translate($faction, ' ', '-')" />
 		<html>
 			<head>
-				<link rel="stylesheet" type="text/css" href="css/style-large.css" />
+				<link rel="stylesheet" type="text/css"
+					href="css/style-large.css" />
 				<script id="textFitLib" src="js/textFit.min.js" />
 				<script>
 					function doFit(){
@@ -32,17 +34,20 @@
 					true, alignVert: true, multiLine: true, minFontSize: 12,
 					maxFontSize: 28})
 					textFit(document.getElementsByClassName('abilities'),
-					{alignVert: true, minFontSize:
+					{alignVert:
+					true, minFontSize:
 					12, maxFontSize: 16})
 					textFit(document.getElementsByClassName('weapon-name'),
 					{alignHoriz: true, alignVert: true, maxFontSize: 28})
 					textFit(document.getElementsByClassName('weapon-stat-value'),
 					{alignHoriz: true, alignVert: true, minFontSize: 12, maxFontSize:
-					14})
+					18})
 					textFit(document.getElementsByClassName('faction-title'),
 					{alignHoriz: true, alignVert: true, maxFontSize: 28})
 					textFit(document.getElementsByClassName('generic-abilities'),
 					{maxFontSize: 16})
+					textFit(document.getElementsByClassName('monster-table'),
+					{alignHoriz: true, maxFontSize: 14})
 					}
 				</script>
 
@@ -51,27 +56,33 @@
 				<xsl:for-each
 					select="bs:selections/bs:selection[@type='model' or @type='unit']">
 					<xsl:variable name="unit" select="." />
-					<xsl:variable name="monster" select="count(.//bs:selection[contains(translate(@name, $uppercase, $lowercase), 'monster')]) > 0" />
-					<xsl:variable name="thrall" select="count(.//bs:selection[contains(translate(@name, $uppercase, $lowercase), 'thrall')]) > 0" />
-					
+					<xsl:variable name="monster"
+						select="count(.//bs:selection[contains(translate(@name, $uppercase, $lowercase), 'monster')]) > 0" />
+					<xsl:variable name="thrall"
+						select="count(.//bs:selection[contains(translate(@name, $uppercase, $lowercase), 'thrall')]) > 0" />
+
 					<xsl:variable name="cardTags">
 						<xsl:choose>
-						<xsl:when test="$monster"> monster</xsl:when>
-						<xsl:when test="$thrall"> thrall</xsl:when>
+							<xsl:when test="$monster">
+								monster
+							</xsl:when>
+							<xsl:when test="$thrall">
+								thrall
+							</xsl:when>
 						</xsl:choose>
 					</xsl:variable>
-					
+
 					<div class="card{$cardTags}" id="{@id}">
-					
+
 						<div class="unit-name">
 							<xsl:choose>
 								<xsl:when test="@customName">
-									<xsl:value-of select="@customName" /><br />
+									<xsl:value-of select="@customName" />
+									<br />
 									<xsl:value-of select="@name" />
 								</xsl:when>
 								<xsl:otherwise>
-									<xsl:value-of select="@name" /><br />
-									<xsl:value-of select="$monster" />
+									<xsl:value-of select="@name" />
 								</xsl:otherwise>
 							</xsl:choose>
 						</div>
@@ -83,7 +94,8 @@
 							<xsl:value-of select="$baseCost + $upgradeCosts" />
 						</div>
 						<div class="faction">
-							<xsl:if test="bs:categories/bs:category[@name = 'Leaders' or @name = 'Fighters' or @name = 'Heroes']">
+							<xsl:if
+								test="bs:categories/bs:category[@name = 'Leaders' or @name = 'Fighters' or @name = 'Heroes']">
 								<img src="assets/runemarks/white/{$faction-file}.svg" />
 							</xsl:if>
 						</div>
@@ -115,7 +127,7 @@
 								</xsl:choose>
 							</xsl:for-each>
 						</div>
-						
+
 						<xsl:for-each
 							select="bs:profiles/bs:profile[@typeName='Model']/bs:characteristics/bs:characteristic">
 							<xsl:variable name="runemark"
@@ -156,30 +168,39 @@
 								</div>
 							</xsl:for-each>
 						</div>
-						
+
 						<xsl:choose>
 							<xsl:when test="$monster">
 								<div class="monster-table">
-									<table>
-									<tr>
-										<td><img src="assets/runemarks/white/wounds.svg" /></td>
-										<td><img src="assets/runemarks/white/move.svg" /></td>
-										<td><img src="assets/runemarks/white/damage.svg" /></td>
-									</tr>
-									<xsl:for-each select="//bs:profile[@typeName = 'Damage Points Allocated']">
-										<xsl:sort select="@name" />
-										<tr>
-											<td><xsl:value-of select="@name" /></td>
-											<td><xsl:value-of select="bs:characteristics/bs:characteristic[@name = 'Move']" /></td>
-											<td><xsl:value-of select="bs:characteristics/bs:characteristic[@name = 'Damage']" /></td>
-										</tr>
-									</xsl:for-each>
-									</table>
+									<div class="body">
+										<div class="cell header dmg">Damage Allocated</div>
+										<div class="cell header">
+											<img src="assets/runemarks/black/move.svg" />
+										</div>
+										<div class="cell header">
+											<img src="assets/runemarks/black/damage.svg" />
+										</div>
+										<xsl:for-each
+											select="//bs:profile[@typeName = 'Damage Points Allocated']">
+											<xsl:sort select="@name" />
+											<div class="cell dmg">
+												<xsl:value-of select="@name" />
+											</div>
+											<div class="cell">
+												<xsl:value-of
+													select="bs:characteristics/bs:characteristic[@name = 'Move']" />
+											</div>
+											<div class="cell">
+												<xsl:value-of
+													select="bs:characteristics/bs:characteristic[@name = 'Damage']" />
+											</div>
+										</xsl:for-each>
+									</div>
 								</div>
 							</xsl:when>
 						</xsl:choose>
-						
-						
+
+
 						<div class="abilities-bg">
 							<div class="abilities">
 								<xsl:for-each
@@ -263,14 +284,14 @@
 		<xsl:param name="ability-description" />
 		<xsl:param name="showDesc" />
 		<xsl:param name="unitNameAttr" />
-		
+
 		<xsl:choose>
 			<xsl:when test="contains($string,',')">
 				<xsl:variable name="ability-runemark"
 					select="normalize-space(substring-before($string,','))" />
 				<xsl:if
 					test="$unitNameAttr/@name[normalize-space(translate(., translate(., $characters, ''), '')) = $ability-runemark]">
-			
+
 					<xsl:call-template name="processAbility">
 						<xsl:with-param name="string"
 							select="substring-after($string,',')" />
