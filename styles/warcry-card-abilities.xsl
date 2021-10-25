@@ -36,7 +36,7 @@
 					textFit(document.getElementsByClassName('abilities'),
 					{alignVert:
 					true, minFontSize:
-					12, maxFontSize: 16})
+					10, maxFontSize: 16})
 					textFit(document.getElementsByClassName('weapon-name'),
 					{alignHoriz: true, alignVert: true, maxFontSize: 28})
 					textFit(document.getElementsByClassName('weapon-stat-value'),
